@@ -1,10 +1,10 @@
-import { Component } from '@angular/core';
+import { Component } from "@angular/core";
 
 @Component({
-  selector: 'nfdiv-euipoc-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss'],
+  selector: "nfdiv-euipoc-root",
+  templateUrl: "./app.component.html",
+  styleUrls: ["./app.component.scss"],
 })
 export class AppComponent {
-  title = 'nfdiv-eui';
+  title = "nfdiv-eui";
 }

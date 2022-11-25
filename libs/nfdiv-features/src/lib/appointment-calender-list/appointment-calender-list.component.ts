@@ -1,11 +1,11 @@
-import { Component } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { Component } from "@angular/core";
+import { CommonModule } from "@angular/common";
 
 @Component({
-  selector: 'nfdiv-euipoc-appointment-calender-list',
+  selector: "nfdiv-euipoc-appointment-calender-list",
   standalone: true,
   imports: [CommonModule],
-  templateUrl: './appointment-calender-list.component.html',
-  styleUrls: ['./appointment-calender-list.component.scss'],
+  templateUrl: "./appointment-calender-list.component.html",
+  styleUrls: ["./appointment-calender-list.component.scss"],
 })
 export class AppointmentCalenderListComponent {}
