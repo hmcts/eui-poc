@@ -11,6 +11,8 @@ import {
 import { MAT_DATE_LOCALE } from "@angular/material/core";
 import { SaveButtonGroupComponent } from "@hmcts-common";
 import { SimpleDateComponent } from "@hmcts-common";
+import { HttpClientModule } from "@angular/common/http";
+import { AppRoutingModule } from "./app-routing.module";
 
 @NgModule({
   declarations: [AppComponent],
@@ -23,8 +25,10 @@ import { SimpleDateComponent } from "@hmcts-common";
     SaveButtonGroupComponent,
     SimpleDateComponent,
     SimpleDatePageComponent,
+    AppRoutingModule,
   ],
   providers: [
+    HttpClientModule,
     { provide: MAT_DATE_LOCALE, useValue: "en-gb" },
     { provide: LOCALE_ID, useValue: "en-gb" },
   ],
