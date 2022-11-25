@@ -2,7 +2,6 @@ import { LOCALE_ID, NgModule } from "@angular/core";
 import { BrowserModule } from "@angular/platform-browser";
 
 import { AppComponent } from "./app.component";
-import { NxWelcomeComponent } from "./nx-welcome.component";
 import { CommonFooterComponent, CommonHeaderComponent } from "@hmcts-common";
 import {
   AppointmentCalenderComponent,
@@ -14,7 +13,7 @@ import { SaveButtonGroupComponent } from "@hmcts-common";
 import { SimpleDateComponent } from "@hmcts-common";
 
 @NgModule({
-  declarations: [AppComponent, NxWelcomeComponent],
+  declarations: [AppComponent],
   imports: [
     BrowserModule,
     CommonHeaderComponent,

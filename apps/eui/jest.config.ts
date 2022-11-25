@@ -1,6 +1,6 @@
 /* eslint-disable */
 export default {
-  displayName: "nfdiv-eui",
+  displayName: "eui",
   preset: "../../jest.preset.js",
   setupFilesAfterEnv: ["<rootDir>/src/test-setup.ts"],
   globals: {
@@ -9,7 +9,7 @@ export default {
       stringifyContentPathRegex: "\\.(html|svg)$",
     },
   },
-  coverageDirectory: "../../coverage/apps/nfdiv-eui",
+  coverageDirectory: "../../coverage/apps/eui",
   transform: {
     "^.+\\.(ts|mjs|js|html)$": "jest-preset-angular",
   },

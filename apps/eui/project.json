@@ -1,8 +1,8 @@
 {
-  "name": "nfdiv-eui",
+  "name": "eui",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "projectType": "application",
-  "sourceRoot": "apps/nfdiv-eui/src",
+  "sourceRoot": "apps/eui/src",
   "prefix": "eui",
   "targets": {
     "build": {
@@ -10,19 +10,19 @@
       "outputs": ["{options.outputPath}"],
       "options": {
         "localize": true,
-        "outputPath": "dist/apps/nfdiv-eui",
-        "index": "apps/nfdiv-eui/src/index.html",
-        "main": "apps/nfdiv-eui/src/main.ts",
+        "outputPath": "dist/apps/eui",
+        "index": "apps/eui/src/index.html",
+        "main": "apps/eui/src/main.ts",
         "polyfills": ["zone.js"],
-        "tsConfig": "apps/nfdiv-eui/tsconfig.app.json",
+        "tsConfig": "apps/eui/tsconfig.app.json",
         "inlineStyleLanguage": "scss",
         "assets": [
-          "apps/nfdiv-eui/src/favicon.ico",
-          "apps/nfdiv-eui/src/assets"
+          "apps/eui/src/favicon.ico",
+          "apps/eui/src/assets"
         ],
         "styles": [
-          "apps/nfdiv-eui/src/styles.scss",
-          "apps/nfdiv-eui/src/custom-theme.scss"
+          "apps/eui/src/styles.scss",
+          "apps/eui/src/custom-theme.scss"
         ],
         "scripts": []
       },
@@ -57,10 +57,10 @@
       "executor": "@angular-devkit/build-angular:dev-server",
       "configurations": {
         "production": {
-          "browserTarget": "nfdiv-eui:build:production"
+          "browserTarget": "eui:build:production"
         },
         "development": {
-          "browserTarget": "nfdiv-eui:build:development"
+          "browserTarget": "eui:build:development"
         }
       },
       "defaultConfiguration": "development"
@@ -68,15 +68,15 @@
     "extract-i18n": {
       "executor": "@angular-devkit/build-angular:extract-i18n",
       "options": {
-        "browserTarget": "nfdiv-eui:build"
+        "browserTarget": "eui:build"
       }
     },
     "lint": {
       "executor": "@nrwl/linter:eslint",
       "options": {
         "lintFilePatterns": [
-          "apps/nfdiv-eui/**/*.ts",
-          "apps/nfdiv-eui/**/*.html"
+          "apps/eui/**/*.ts",
+          "apps/eui/**/*.html"
         ]
       }
     },
@@ -84,7 +84,7 @@
       "executor": "@nrwl/jest:jest",
       "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
       "options": {
-        "jestConfig": "apps/nfdiv-eui/jest.config.ts",
+        "jestConfig": "apps/eui/jest.config.ts",
         "passWithNoTests": true
       }
     }
