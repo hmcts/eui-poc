@@ -2,7 +2,7 @@ import { Component } from "@angular/core";
 import { CommonModule } from "@angular/common";
 
 @Component({
-  selector: "nfdiv-euipoc-appointment-calender-list",
+  selector: "eui-appointment-calender-list",
   standalone: true,
   imports: [CommonModule],
   templateUrl: "./appointment-calender-list.component.html",

@@ -1,11 +1,12 @@
 {
-  "name": "nfdiv-euipoc",
+  "name": "eui",
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
     "ng": "nx",
     "postinstall": "node ./decorate-angular-cli.js",
     "start": "nx serve",
+    "startAll": " run ./apps/gradlew withBoot",
     "build": "nx build",
     "test": "nx test"
   },
@@ -51,7 +52,7 @@
     "@typescript-eslint/eslint-plugin": "^5.36.1",
     "@typescript-eslint/parser": "^5.36.1",
     "cypress": "^11.2.0",
-    "eslint": "~8.15.0",
+    "eslint": "8.28.0",
     "eslint-config-prettier": "8.1.0",
     "eslint-plugin-cypress": "^2.10.3",
     "jest": "29.3.1",

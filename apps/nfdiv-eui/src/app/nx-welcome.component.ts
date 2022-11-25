@@ -3,7 +3,7 @@ import { Component, ViewEncapsulation } from "@angular/core";
 /* eslint-disable */
 
 @Component({
-  selector: "nfdiv-euipoc-nx-welcome",
+  selector: "eui-nx-welcome",
   template: `
     <!--
      * * * * * * * * * * * * * * * * * * * * * * * * * * * *

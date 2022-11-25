@@ -1,5 +1,4 @@
 {
-  "extends": ["../../.eslintrc.json"],
   "ignorePatterns": ["!**/*"],
   "overrides": [
     {
@@ -21,7 +20,7 @@
           "error",
           {
             "type": "element",
-            "prefix": "nfdiv-euipoc",
+            "prefix": "eui",
             "style": "kebab-case"
           }
         ]

@@ -7,8 +7,11 @@ import { CommonFooterComponent, CommonHeaderComponent } from "@hmcts-common";
 import {
   AppointmentCalenderComponent,
   NfdivFeaturesModule,
+  SimpleDatePageComponent,
 } from "@nfdiv/features";
 import { MAT_DATE_LOCALE } from "@angular/material/core";
+import { SaveButtonGroupComponent } from "@hmcts-common";
+import { SimpleDateComponent } from "@hmcts-common";
 
 @NgModule({
   declarations: [AppComponent, NxWelcomeComponent],
@@ -18,6 +21,9 @@ import { MAT_DATE_LOCALE } from "@angular/material/core";
     CommonFooterComponent,
     NfdivFeaturesModule,
     AppointmentCalenderComponent,
+    SaveButtonGroupComponent,
+    SimpleDateComponent,
+    SimpleDatePageComponent,
   ],
   providers: [
     { provide: MAT_DATE_LOCALE, useValue: "en-gb" },

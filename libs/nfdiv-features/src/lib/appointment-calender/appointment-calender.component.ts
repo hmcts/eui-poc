@@ -7,7 +7,7 @@ import { format } from "date-fns";
 import { DateAdapter } from "@angular/material/core";
 
 @Component({
-  selector: "nfdiv-euipoc-appointment-calender",
+  selector: "eui-appointment-calender",
   standalone: true,
   imports: [
     CommonModule,

@@ -1,7 +1,7 @@
 import { Component } from "@angular/core";
 
 @Component({
-  selector: "nfdiv-euipoc-root",
+  selector: "eui-root",
   templateUrl: "./app.component.html",
   styleUrls: ["./app.component.scss"],
 })
