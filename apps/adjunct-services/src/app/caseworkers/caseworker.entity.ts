@@ -8,4 +8,6 @@ export class CaseWorker {
   firstName: string;
   @Column()
   lastName: string;
+  @Column()
+  email: string;
 }

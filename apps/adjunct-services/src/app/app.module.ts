@@ -8,6 +8,8 @@ import { CaseWorker } from "./caseworkers/caseworker.entity";
 import { Appointment } from "./appointments/appointment.entity";
 import { CaseworkersService } from "./caseworkers/caseworkers.service";
 import { AppointmentsService } from "./appointments/appointments.service";
+import { CaseworkerController } from "./caseworkers/caseworker.controller";
+import { AppointmentsController } from "./appointments/appointments.controller";
 
 @Module({
   imports: [
@@ -17,10 +19,10 @@ import { AppointmentsService } from "./appointments/appointments.service";
       type: "sqlite",
       database: "db.sqlite",
       entities: [Appointment, CaseWorker],
-      synchronize: true,
+      synchronize: true, // Don't use in production
     }),
   ],
-  controllers: [AppController],
+  controllers: [AppController, CaseworkerController, AppointmentsController],
   providers: [AppService, CaseworkersService, AppointmentsService],
 })
 export class AppModule {}
