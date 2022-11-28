@@ -2,18 +2,22 @@ import { Module } from "@nestjs/common";
 import { TypeOrmModule } from "@nestjs/typeorm";
 import { AppController } from "./app.controller";
 import { AppService } from "./app.service";
-import { AppointmentsModule } from "./appointments/appointments.module";
+
 import { CaseworkersModule } from "./caseworkers/caseworkers.module";
 import { CaseWorker } from "./caseworkers/caseworker.entity";
-import { Appointment } from "./appointments/appointment.entity";
+
 import { CaseworkersService } from "./caseworkers/caseworkers.service";
-import { AppointmentsService } from "./appointments/appointments.service";
+
 import { CaseworkerController } from "./caseworkers/caseworker.controller";
-import { AppointmentsController } from "./appointments/appointments.controller";
+
+import { AppointmentModule } from "./appointment/appointment/appointment.module";
+import { Appointment } from "./appointment/appointment/entities/appointment.entity";
+import { AppointmentController } from "./appointment/appointment/appointment.controller";
+import { AppointmentService } from "./appointment/appointment/appointment.service";
 
 @Module({
   imports: [
-    AppointmentsModule,
+    AppointmentModule,
     CaseworkersModule,
     TypeOrmModule.forRoot({
       type: "sqlite",
@@ -21,8 +25,9 @@ import { AppointmentsController } from "./appointments/appointments.controller";
       entities: [Appointment, CaseWorker],
       synchronize: true, // Don't use in production
     }),
+    AppointmentModule,
   ],
-  controllers: [AppController, CaseworkerController, AppointmentsController],
-  providers: [AppService, CaseworkersService, AppointmentsService],
+  controllers: [AppController, CaseworkerController, AppointmentController],
+  providers: [AppService, CaseworkersService, AppointmentService],
 })
 export class AppModule {}
