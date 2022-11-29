@@ -1,9 +1,12 @@
 @use "node_modules/govuk-frontend/govuk/all";
 
+.left-border {
+  padding-left: 10%;
+}
 .calendar-grid {
   width: inherit;
   display: inline-grid;
-  grid-template-columns: 2fr 1fr;
+  grid-template-columns:   4fr 1fr;
 }
 .calendar-main {
   grid-column-start: 1;
