@@ -14,12 +14,13 @@ import { AppointmentModule } from "./appointment/appointment/appointment.module"
 import { Appointment } from "./appointment/appointment/entities/appointment.entity";
 import { AppointmentController } from "./appointment/appointment/appointment.controller";
 import { AppointmentService } from "./appointment/appointment/appointment.service";
-import { CaseModule } from './case/case.module';
+import { CaseModule } from "./case/case.module";
 
 @Module({
   imports: [
     AppointmentModule,
     CaseworkersModule,
+    CaseModule,
     TypeOrmModule.forRoot({
       type: "sqlite",
       database: "db.sqlite",
