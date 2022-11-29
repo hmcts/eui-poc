@@ -1,10 +1,10 @@
 <div>
-    <mat-list role="list">
+    <mat-selection-list [multiple]=false role="list">
         <div mat-subheader>Appointment Times</div>
-        <mat-list-item *ngFor="let appt of timeslots">
+        <mat-list-option [disabled]="!appt.booked" *ngFor="let appt of timeslots">
             <mat-icon matListItemIcon>schedule</mat-icon>
             <div matListItemTitle>{{appt.person}}</div>
             <div matListItemLine>{{appt.timeslot| date:'medium'}}</div>
-        </mat-list-item>
-    </mat-list>
+        </mat-list-option>
+    </mat-selection-list>
 </div>
