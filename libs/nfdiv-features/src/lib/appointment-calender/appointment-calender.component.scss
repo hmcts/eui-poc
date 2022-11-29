@@ -1,13 +1,14 @@
 @use "node_modules/govuk-frontend/govuk/all";
 
-calendar-wrapper {
-  max-width: 200px;
-  display: flex;
-  justify-content: space-between;
+.calendar-grid {
+  width: inherit;
+  display: inline-grid;
+  grid-template-columns: 2fr 1fr;
 }
-calendar-main {
-  flex-grow: 2;
+.calendar-main {
+  grid-column-start: 1;
+  padding-bottom: 20px;
 }
-calendar-list {
-  flex-grow: 1;
+.calendar-list {
+  grid-column-start: 2;
 }

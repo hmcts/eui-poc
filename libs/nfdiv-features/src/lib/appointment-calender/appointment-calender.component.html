@@ -1,22 +1,23 @@
-
-<div class="govuk-width-container">
+<div>
   <a href="#" class="govuk-back-link">Back</a>
+
   <main class="govuk-main-wrapper">
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-two-thirds">
-        <div >
-          <ng-container>
-            <mat-card class="demo-inline-calendar-card">
-              <mat-calendar [(selected)]="selected"></mat-calendar>
-            </mat-card>
-            <p>Selected date: {{ selected }}</p>
-          </ng-container>
+        <div class="calendar-grid">
+          <div class="calendar-main">
+            <ng-container>
+              <mat-card class="demo-inline-calendar-card">
+                <mat-calendar [(selected)]="selected"></mat-calendar>
+              </mat-card>
+            </ng-container>
+          </div>
+          <div *ngIf="selected" class="calendar-list">
+            <eui-appointment-calender-list></eui-appointment-calender-list>
+          </div>
         </div>
-        <div *ngIf="selected" class="govuk-grid-column-one-third">>
-          <eui-appointment-calender-list></eui-appointment-calender-list>
-        </div>
-        <eui-govuk-save-button-group></eui-govuk-save-button-group>
       </div>
     </div>
+    <eui-govuk-save-button-group></eui-govuk-save-button-group>
   </main>
 </div>

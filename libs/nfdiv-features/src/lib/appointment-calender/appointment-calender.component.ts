@@ -31,5 +31,6 @@ export class AppointmentCalenderComponent implements OnInit {
   ngOnInit() {
     this.adapter.setLocale(enGB);
     this.startDate = format(Date.now(), "dd/MM/yyyy");
+    this.selected = format(Date.now(), "dd/MM/yyyy");
   }
 }
