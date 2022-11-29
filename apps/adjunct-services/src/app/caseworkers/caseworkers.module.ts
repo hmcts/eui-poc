@@ -8,5 +8,6 @@ import { CaseWorker } from "./caseworker.entity";
   imports: [TypeOrmModule.forFeature([CaseWorker])],
   providers: [CaseworkersService],
   controllers: [CaseworkerController],
+  exports: [CaseworkersService],
 })
 export class CaseworkersModule {}

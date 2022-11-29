@@ -2,9 +2,8 @@
     <mat-list role="list">
         <div mat-subheader>Appointment Times</div>
         <mat-list-item *ngFor="let appt of timeslots">
-            <mat-icon matListIcon>shedule</mat-icon>
             <div matListItemTitle>{{appt.person}}</div>
-            <div matListItemLine>{{appt.timeslot| date:'shortime'}}</div>
+            <div matListItemLine>{{appt.timeslot| date:'medium'}}</div>
         </mat-list-item>
     </mat-list>
 </div>

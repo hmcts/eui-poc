@@ -1,1 +1,13 @@
 @use "node_modules/govuk-frontend/govuk/all";
+
+calendar-wrapper {
+  max-width: 200px;
+  display: flex;
+  justify-content: space-between;
+}
+calendar-main {
+  flex-grow: 2;
+}
+calendar-list {
+  flex-grow: 1;
+}

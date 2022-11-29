@@ -14,6 +14,7 @@ import { AppointmentModule } from "./appointment/appointment/appointment.module"
 import { Appointment } from "./appointment/appointment/entities/appointment.entity";
 import { AppointmentController } from "./appointment/appointment/appointment.controller";
 import { AppointmentService } from "./appointment/appointment/appointment.service";
+import { CaseModule } from './case/case.module';
 
 @Module({
   imports: [
@@ -26,8 +27,9 @@ import { AppointmentService } from "./appointment/appointment/appointment.servic
       synchronize: true, // Don't use in production
     }),
     AppointmentModule,
+    CaseModule,
   ],
   controllers: [AppController, CaseworkerController, AppointmentController],
-  providers: [AppService, CaseworkersService, AppointmentService],
+  providers: [AppService],
 })
 export class AppModule {}

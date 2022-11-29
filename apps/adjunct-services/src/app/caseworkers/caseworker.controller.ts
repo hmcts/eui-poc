@@ -1,8 +1,12 @@
 import { Body, Controller, Get, Param, Post } from "@nestjs/common";
 import { CreatCaseWorkerDto } from "./caseworkers.dto";
+import { CaseworkersService } from "./caseworkers.service";
+import { CaseWorker } from "./caseworker.entity";
 
 @Controller("caseworker")
 export class CaseworkerController {
+  constructor(private service: CaseworkersService) {}
+
   @Get()
   findallCaseWorkers() {
     return "got all";
@@ -15,7 +19,9 @@ export class CaseworkerController {
   }
 
   @Post()
-  create(@Body() createCaseWorker: CreatCaseWorkerDto) {
-    return "created one";
+  create(@Body() body: CaseWorker) {
+    console.log(body);
+    body.id = null;
+    return this.service.create(body);
   }
 }
