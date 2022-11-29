@@ -12,15 +12,15 @@ interface Appointments {
 @Component({
   selector: "eui-appointment-calender-list",
   standalone: true,
-  imports: [CommonModule, MatListModule, MatIconModule],
+  imports: [ CommonModule, MatListModule, MatIconModule],
   templateUrl: "./appointment-calender-list.component.html",
   styleUrls: ["./appointment-calender-list.component.scss"],
 })
 export class AppointmentCalenderListComponent {
   timeslots: Appointments[] = [
-    { person: "Mike Tyson", timeslot: new Date(), booked: true },
+    { person: "Mike Tyson", timeslot: new Date(), booked: false },
     { person: "Mary Tyler", timeslot: new Date(), booked: true },
-    { person: "Fred Bloggs", timeslot: new Date(), booked: true },
+    { person: "Fred Bloggs", timeslot: new Date(), booked: false },
     { person: "Jules Verne", timeslot: new Date(), booked: true },
   ];
 }

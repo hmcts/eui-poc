@@ -247,6 +247,11 @@
     "slice-ansi" "^4.0.0"
     "wrap-ansi" "^6.2.0"
 
+"material-icons@^1.12.2":
+  "integrity" "sha512-z17mvWzcQBp9O1wgJcmLDJLSR54VssccCYbB/ZgV7DzLxxy4cpfoc/MNH9fabO1wlowWCzSQM8/KA5EPTsN4qQ=="
+  "resolved" "https://registry.npmjs.org/material-icons/-/material-icons-1.12.2.tgz"
+  "version" "1.12.2"
+
 "merge-stream@^2.0.0":
   "integrity" "sha512-abv/qOcuPfk3URPfDzmZU1LKmuw8kT+0nIHvKrKgFrwifol/doWcdA4ZqsWQ8ENrFKkd67Mfpo/LovbIUsbt3w=="
   "resolved" "https://registry.npmjs.org/merge-stream/-/merge-stream-2.0.0.tgz"
