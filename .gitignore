@@ -107,3 +107,4 @@ dist
 /.angular/
 /db.sqlite
 /.idea/
+/apps/nfdiv-case-api/db.sqlite
