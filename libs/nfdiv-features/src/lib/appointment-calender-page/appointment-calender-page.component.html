@@ -10,17 +10,24 @@
           <div class="calendar-main">
             <ng-container>
               <mat-card class="demo-inline-calendar-card">
-                <mat-calendar [(selected)]="selected"></mat-calendar>
+                <mat-calendar [(selected)]="selected" (selectedChange)="dateChange($event)"></mat-calendar>
               </mat-card>
             </ng-container>
           </div>
+          <div *ngIf="!selected" class="calendar-list">
+            <div class="govuk-inset-text">
+              Please select a date for your appointment.
+            </div>
+            <p><p>
+          </div>
           <div *ngIf="selected" class="calendar-list">
-            <eui-appointment-calender-list></eui-appointment-calender-list>
+
+            <eui-appointment-calender-list [appointmentTimes]="appointmentTimes"  (valueSelected)="validateSelection($event)"></eui-appointment-calender-list>
           </div>
         </div>
       </div>
     </div>
-    <eui-govuk-save-button-group></eui-govuk-save-button-group>
+    <eui-govuk-save-button-group [continue]="continue" [nextUrl]="routerlinkNext" [backUrl]="routerLinkCancel" ></eui-govuk-save-button-group>
 </div>
 </main>
 

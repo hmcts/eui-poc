@@ -1,7 +1,7 @@
 <div class="govuk-button-group">
-    <button class="govuk-button" data-module="govuk-button">
+    <button class="govuk-button" [disabled]="!continue" routerLink="{{nextUrl}}" data-module="govuk-button">
         Continue
     </button>
 
-    <a class="govuk-link" href="#">Cancel</a>
+    <a class="govuk-link" routerLink="{{backUrl}}">Cancel</a>
 </div>
