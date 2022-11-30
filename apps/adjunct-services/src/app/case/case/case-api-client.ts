@@ -9,6 +9,7 @@ import { CaseWithId } from './case';
 import { CaseAssignedUserRoles } from './case-roles';
 import { CASE_TYPE, CITIZEN_CREATE, CaseData, DivorceOrDissolution, State } from './definition';
 import { fromApiFormat } from './from-api-format';
+import {logger} from "nx/src/utils/logger";
 
 export class CaseApiClient {
   readonly maxRetries: number = 3;
@@ -133,6 +134,7 @@ export class CaseApiClient {
   }
 
   private logError(error: AxiosError) {
+    logger.log(error)
     if (error.response) {
       this.logger.error(`API Error ${error.config.method} ${error.config.url} ${error.response.status}`);
       this.logger.info('Response: ', error.response.data);

@@ -9,7 +9,9 @@ import { CaseApiClient, CcdV1Response, getCaseApiClient } from './case-api-clien
 import { CASE_TYPE, DivorceOrDissolution, ListValue, Payment, UserRole } from './definition';
 import { fromApiFormat } from './from-api-format';
 import { toApiFormat } from './to-api-format';
+import {Injectable} from "@nestjs/common";
 
+@Injectable()
 export class CaseApi {
   readonly maxRetries: number = 3;
 

@@ -43,7 +43,7 @@ export const getSystemUser = async (): Promise<UserDetails> => {
 
   const jwt = jwt_decode(response.data.id_token) as IdTokenJwtPayload;
 
-  return {
+  const result = {
     accessToken: response.data.access_token,
     id: jwt.uid,
     email: jwt.sub,
@@ -51,6 +51,7 @@ export const getSystemUser = async (): Promise<UserDetails> => {
     familyName: jwt.family_name,
     roles: jwt.roles,
   };
+  return result;
 };
 
 interface IdTokenJwtPayload {
