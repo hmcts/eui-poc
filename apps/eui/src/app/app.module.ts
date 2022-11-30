@@ -4,7 +4,7 @@ import { BrowserModule } from "@angular/platform-browser";
 import { AppComponent } from "./app.component";
 import { CommonFooterComponent, CommonHeaderComponent } from "@hmcts-common";
 import {
-  AppointmentCalenderComponent,
+  AppointmentCalenderPageComponent,
   NfdivFeaturesModule,
   SimpleDatePageComponent,
 } from "@nfdiv/features";
@@ -21,7 +21,7 @@ import { AppRoutingModule } from "./app-routing.module";
     CommonHeaderComponent,
     CommonFooterComponent,
     NfdivFeaturesModule,
-    AppointmentCalenderComponent,
+    AppointmentCalenderPageComponent,
     SaveButtonGroupComponent,
     SimpleDateComponent,
     SimpleDatePageComponent,

@@ -9,7 +9,7 @@ import { enGB } from "date-fns/locale";
 import { SaveButtonGroupComponent } from "@hmcts-common";
 
 @Component({
-  selector: "eui-appointment-calender",
+  selector: "eui-appointment-calender-page",
   standalone: true,
   imports: [
     CommonModule,
@@ -18,10 +18,10 @@ import { SaveButtonGroupComponent } from "@hmcts-common";
     MatCardModule,
     SaveButtonGroupComponent,
   ],
-  templateUrl: "./appointment-calender.component.html",
-  styleUrls: ["./appointment-calender.component.scss"],
+  templateUrl: "./appointment-calender-page.component.html",
+  styleUrls: ["./appointment-calender-page.component.scss"],
 })
-export class AppointmentCalenderComponent implements OnInit {
+export class AppointmentCalenderPageComponent implements OnInit {
   constructor(
     @Inject(LOCALE_ID) public locale: string,
     private adapter: DateAdapter<any>

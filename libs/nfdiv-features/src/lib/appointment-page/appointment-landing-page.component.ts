@@ -2,7 +2,7 @@ import { Component } from "@angular/core";
 import { CommonModule } from "@angular/common";
 import { SaveButtonGroupComponent } from "@hmcts-common";
 import {
-  AppointmentCalenderComponent,
+  AppointmentCalenderPageComponent,
   AppointmentCalenderListComponent,
 } from "@nfdiv/features";
 
@@ -12,10 +12,10 @@ import {
   imports: [
     CommonModule,
     SaveButtonGroupComponent,
-    AppointmentCalenderComponent,
+    AppointmentCalenderPageComponent,
     AppointmentCalenderListComponent,
   ],
   templateUrl: "./appointment-page.component.html",
   styleUrls: ["./appointment-page.component.scss"],
 })
-export class AppointmentPageComponent {}
+export class AppointmentLandingPageComponent {}
