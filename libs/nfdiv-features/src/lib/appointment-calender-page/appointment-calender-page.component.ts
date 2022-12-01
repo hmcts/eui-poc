@@ -30,8 +30,20 @@ export class AppointmentCalenderPageComponent implements OnInit {
     private router: Router,
     @Inject(LOCALE_ID) public locale: string,
     private adapter: DateAdapter<any>,
-  private service:AppointmentCalendarPageService
-  ) {}
+    private service: AppointmentCalendarPageService
+  ) {
+    this.router.events.subscribe((event) => {
+      if (event instanceof NavigationEnd) {
+        console.log(event.url);
+        this.currentRoute = event.url;
+        if (this.currentRoute.includes("appointment")) {
+          this.routerlinkNext = this.currentRoute + `/confirm`;
+        } else {
+          this.routerlinkNext = this.currentRoute + `/appointment/confirm`;
+        }
+      }
+    });
+  }
   startDate: string | null | undefined;
   selected: string | null | undefined;
   continue = false;
@@ -41,13 +53,6 @@ export class AppointmentCalenderPageComponent implements OnInit {
   currentRoute: string | undefined;
 
   ngOnInit() {
-    this.router.events
-      .subscribe((event) => {
-        if(event instanceof NavigationEnd) {
-          console.log(event.url);
-          this.currentRoute = event.url;
-        }
-      });
     this.adapter.setLocale(enGB);
     this.startDate = format(Date.now(), "dd/MM/yyyy");
   }
@@ -82,9 +87,8 @@ export class AppointmentCalenderPageComponent implements OnInit {
   }
 
   validateSelection($event: any) {
-    console.log('got a value', $event);
-    this.service.setAppointment($event as AppointmentsModel)
-    this.continue = $event != undefined
+    console.log("got a value", $event);
+    this.service.setAppointment($event as AppointmentsModel);
+    this.continue = $event != undefined;
   }
 }
-

@@ -1,12 +1,17 @@
 import { Route } from "@angular/router";
-import { SimpleDatePageComponent } from "./simple-date/simple-date-page/simple-date-page.component";
 import { AppointmentCalenderPageComponent } from "./appointment-calender-page/appointment-calender-page.component";
+import { AppointmentCheckAnswersComponent } from "./appointment-check-answers/appointment-check-answers.component";
 
 export const nfdivFeaturesRoutes: Route[] = [
-  { path: "", pathMatch: "full", component: SimpleDatePageComponent },
+  { path: "", pathMatch: "full", component: AppointmentCalenderPageComponent },
   {
     path: "appointment",
     pathMatch: "prefix",
     component: AppointmentCalenderPageComponent,
+  },
+  {
+    path: "appointment/confirm",
+    pathMatch: "prefix",
+    component: AppointmentCheckAnswersComponent,
   },
 ];
