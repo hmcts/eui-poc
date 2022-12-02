@@ -28,16 +28,6 @@ export class CaseApi {
     return this.apiClient.getCaseById(caseId);
   }
 
-  public async getNewInviteCase(
-    email: string,
-    serviceType: string,
-    logger: LoggerInstance
-  ): Promise<CaseWithId | false> {
-    const apiClient = getCaseApiClient(await getSystemUser(), logger);
-    const userCases = await apiClient.findUserInviteCases(email, CASE_TYPE, serviceType);
-    return this.getLatestUserCase(userCases);
-  }
-
   public async isApplicant2(caseId: string, userId: string): Promise<boolean> {
     const userRoles = await this.apiClient.getCaseUserRoles(caseId, userId);
     return [UserRole.APPLICANT_2].includes(userRoles.case_users[0]?.case_role);
@@ -45,14 +35,6 @@ export class CaseApi {
 
   public async triggerEvent(caseId: string, userData: Partial<Case>, eventName: string): Promise<CaseWithId> {
     return this.apiClient.sendEvent(caseId, toApiFormat(userData), eventName);
-  }
-
-  public async triggerPaymentEvent(
-    caseId: string,
-    payments: ListValue<Payment>[],
-    eventName: string
-  ): Promise<CaseWithId> {
-    return this.apiClient.sendEvent(caseId, { applicationPayments: payments }, eventName);
   }
 
   public async hasInProgressDivorceCase(): Promise<boolean> {
@@ -87,6 +69,6 @@ export class CaseApi {
   }
 }
 
-export const getCaseApi = (userDetails: UserDetails, logger: LoggerInstance): CaseApi => {
-  return new CaseApi(getCaseApiClient(userDetails, logger));
+export const getCaseApi = (token: string, logger: LoggerInstance): CaseApi => {
+  return new CaseApi(getCaseApiClient(token, logger));
 };
