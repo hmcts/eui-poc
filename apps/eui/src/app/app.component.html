@@ -1,6 +1,12 @@
 <main class="govuk-main-wrapper">
-  <eui-govuk-header></eui-govuk-header>
-<!--  Page Dynamic content  Router content goes here-->
+  <eui-govuk-service-header
+    [logoTypeText]="logoTypeText"
+    [serviceName]="headerServiceName"
+  [navLinks]="navLinks">
+  </eui-govuk-service-header>
+  <eui-phase-banner></eui-phase-banner>
+
+  <!--  Page Dynamic content  Router content goes here-->
   <router-outlet></router-outlet>
   <eui-govuk-footer></eui-govuk-footer>
 </main>

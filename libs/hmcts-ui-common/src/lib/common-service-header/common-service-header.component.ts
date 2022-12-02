@@ -1,11 +1,13 @@
 import { Component, Input } from "@angular/core";
 import { CommonModule } from "@angular/common";
+import { NavigationComponent } from "../navigation/navigation.component";
+import { NavLinks } from "../ui-common-model";
 
 @Component({
   // eslint-disable-next-line @angular-eslint/component-selector
   selector: "eui-govuk-service-header",
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, NavigationComponent],
   template: ` <header
     class="govuk-header "
     role="banner"
@@ -31,7 +33,7 @@ import { CommonModule } from "@angular/common";
               ></path>
             </svg>
 
-            <span class="govuk-header__logotype-text"> GOV.UK </span>
+            <span class="govuk-header__logotype-text">{{logoTypeText}}</span>
           </span>
         </a>
       </div>
@@ -39,6 +41,7 @@ import { CommonModule } from "@angular/common";
         <a href="#" class="govuk-header__link govuk-header__service-name">
           {{ serviceName }}
         </a>
+        <eui-navigation [links]="navLinks"></eui-navigation>
       </div>
     </div>
   </header>`,
@@ -46,4 +49,8 @@ import { CommonModule } from "@angular/common";
 })
 export class CommonServiceHeaderComponent {
   @Input() serviceName: string | undefined;
+  @Input()
+  logoTypeText: any;
+  @Input() navLinks: NavLinks[]  | undefined
+
 }
