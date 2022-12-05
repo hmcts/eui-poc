@@ -6,6 +6,8 @@ import { AddressFormComponent } from "./multi-party/address-form/address-form.co
 
 export const nfdivFeaturesRoutes: Route[] = [
   { path: "", pathMatch: "full", component: AppointmentCalenderPageComponent },
+  { path: "case-details/:cid/trigger/update-appointment", pathMatch: "full", component: AppointmentCalenderPageComponent },
+
   {
     path: "address",
     pathMatch: "prefix",
@@ -17,7 +19,7 @@ export const nfdivFeaturesRoutes: Route[] = [
     component: AppointmentCalenderPageComponent,
   },
   {
-    path: "appointment/confirm",
+    path: "case-details/:cid/trigger/update-appointment/confirm",
     pathMatch: "prefix",
     component: AppointmentCheckAnswersComponent,
   },
