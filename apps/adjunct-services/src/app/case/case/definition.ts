@@ -793,6 +793,7 @@ export interface CaseData {
   divorceUnit: Court;
   generalOrders: ListValue<DivorceGeneralOrder>[];
   dueDate: DateAsString;
+  appointmentDate: DateAsString;
   notes: ListValue<CaseNote>[];
   note: string;
   bulkListCaseReferenceLink: CaseLink;

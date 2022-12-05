@@ -133,6 +133,7 @@ export const formFieldsToCaseMapping: Partial<Record<keyof Case, keyof CaseData>
   applicant2UsedWelshTranslationOnSubmission: 'applicant2UsedWelshTranslationOnSubmission',
   coRefusalRejectionAdditionalInfo: 'coRefusalRejectionAdditionalInfo',
   dueDate: 'dueDate',
+  appointmentDate: 'appointmentDate',
   dateSubmitted: 'dateSubmitted',
   dateAosSubmitted: 'dateAosSubmitted',
   dateFinalOrderSubmitted: 'dateFinalOrderSubmitted',
@@ -155,6 +156,7 @@ export function formatCase<OutputFormat>(fields: FieldFormats, data: Partial<Cas
       result[value] = data[field];
     }
   }
+
 
   return result as OutputFormat;
 }
@@ -261,6 +263,7 @@ export interface Case {
   applicant2CannotUploadDocuments?: DocumentType | DocumentType[];
   accessCode?: string;
   dueDate?: DateAsString;
+  appointmentDate?: DateAsString;
   applicant1IConfirmPrayer?: Checkbox;
   applicant2IConfirmPrayer?: Checkbox;
   applicant1StatementOfTruth?: Checkbox;

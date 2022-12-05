@@ -14,7 +14,7 @@ export class AppointmentCalendarPageService {
     this.appointment = $event
   }
 
-  getAppointment(){
+  getAppointment() : AppointmentsModel | undefined {
     return this.appointment;
   }
 
