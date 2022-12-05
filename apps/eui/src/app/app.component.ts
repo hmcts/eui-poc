@@ -7,4 +7,18 @@ import { Component } from "@angular/core";
 })
 export class AppComponent {
   title = "eui";
+  logoTypeText = "MyHMCTS"
+  headerServiceName = 'Manage Cases'
+  // Currently hard coded but this could be dynamically loaded via a service
+  navLinks = [
+    {  label:'Case list', url:'localhost:3000/cases' },
+    {  label:'Create Case', url:'/cases/case-filter' },
+    {  label:'Notice of change', url:'/noc' },
+    ]
+   // Ditto
+  footerLinks = [
+    {  label:'Case list', url:'http::/localhost:3000/cases' },
+    {  label:'Create Case', url:'/cases/case-filter' },
+    {  label:'Notice of change', url:'/noc' },
+  ]
 }

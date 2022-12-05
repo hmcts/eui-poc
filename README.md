@@ -7,4 +7,4 @@ run npm i with --legacy-peer-deps for the time being
 
 nx serve  (runs  angular front end) 
 
-nx serve adjunct-services (starts the nestjs api) 
+npx nx run adjunct-services:serve (starts the nestjs api) 

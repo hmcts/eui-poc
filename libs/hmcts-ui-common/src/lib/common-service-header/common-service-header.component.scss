@@ -1,1 +1,5 @@
 @use "node_modules/govuk-frontend/govuk/all";
+.govuk-header__container {
+  margin-bottom: 20px;
+  border-bottom: 10px solid #000;
+}

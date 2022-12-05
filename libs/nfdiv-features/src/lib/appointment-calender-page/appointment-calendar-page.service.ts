@@ -19,6 +19,6 @@ export class AppointmentCalendarPageService {
   }
 
   updateAppointment(){
-
+   // Call to case api
   }
 }

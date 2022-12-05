@@ -1,1 +1,5 @@
 @use "node_modules/govuk-frontend/govuk/all";
+.hmcts-footer__list--inline .hmcts-footer__list-item{
+  display: inline;
+  margin-right: 15px;
+}
