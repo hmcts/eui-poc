@@ -1,5 +1,89 @@
-@use "node_modules/govuk-frontend/govuk/all";
+@import "node_modules/govuk-frontend/govuk/all";
+//@import 'node_modules/@hmcts/frontend/all';
+//
+////@use "./libs/nfdiv-features/src/lib/hmcts";
 .govuk-header__container {
-  margin-bottom: 20px;
-  border-bottom: 10px solid #000;
+  max-height: 100px;
+  //margin-bottom: 20px;
+  border-bottom: 0px solid #000;
+}
+
+@media (min-width: 40.0625em) {
+  .hmcts-header__content {
+    float: right;
+  }
+}
+.hmcts-header__content {
+  padding-bottom: 10px;
+}
+.hmcts-header__navigation {
+  color: #fff;
+  margin-top: 3px;
+}
+.hmcts-header__navigation-list {
+  font-size: 0;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.hmcts-header__navigation-item:last-child {
+  margin-right: 0;
+}
+ .hmcts-header__navigation-item:last-child {
+   margin-right: 0;
+ }
+@media (min-width: 40.0625em) {
+  .hmcts-header__navigation-item {
+    font-size: 1.1875rem;
+    line-height: 1.31578947;
+  }
+}
+
+@media (min-width: 40.0625em) {
+  .hmcts-header__navigation-item {
+    font-size: 1.1875rem;
+    line-height: 1.31578947;
+  }
+}
+.hmcts-header__navigation-item {
+  font-family: "GDS Transport",arial,sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-weight: 400;
+  font-size: 1rem;
+  line-height: 1.25;
+  display: inline-block;
+  margin-right: 20px;
+}
+.hmcts-primary-navigation__item {
+  font-family: "GDS Transport",arial,sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-weight: 700;
+  font-size: 1rem;
+  line-height: 1.25;
+  display: inline-block;
+  margin-right: 20px;
+  margin-top: 0;
+}
+.hmcts-header__navigation-link {
+  color: #ffffff;
+}
+.hmcts-header__navigation-link:visited {
+  color: inherit;
+}
+.govuk-link, a {
+  font-family: "GDS Transport",arial,sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-decoration: underline;
+}
+
+ .hmcts-primary-navigation__search {
+   float: right;
+ }
+
+.hmcts-primary-navigation__search {
+  display: inline-block;
+  vertical-align: middle;
 }

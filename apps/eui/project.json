@@ -11,12 +11,12 @@
         "{options.outputPath}"
       ],
       "options": {
-        "localize": true,
-        "outputPath": "dist/apps/eui",
+        "outputPath": "dist/apps/",
+        "resourcesOutputPath": "/",
         "index": "apps/eui/src/index.html",
         "main": "apps/eui/src/main.ts",
-        "baseHref": "/microsite/nfdiv",
-        "deployUrl": "/microsite/nfdiv/",
+        "baseHref": "/microsite/nfdiv/",
+        "deployUrl": "/",
         "polyfills": [
           "zone.js"
         ],
@@ -24,7 +24,7 @@
         "inlineStyleLanguage": "scss",
         "assets": [
           "apps/eui/src/favicon.ico",
-          "apps/eui/src/assets"
+          "apps/eui/src/assets/"
         ],
         "styles": [
           "apps/eui/src/styles.scss",
@@ -57,7 +57,7 @@
           "namedChunks": true
         }
       },
-      "defaultConfiguration": "production"
+      "defaultConfiguration": "development"
     },
     "serve": {
       "executor": "@angular-devkit/build-angular:dev-server",

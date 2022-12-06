@@ -8,11 +8,9 @@ import { MatCardModule } from "@angular/material/card";
 import { CdkScrollableModule } from "@angular/cdk/scrolling";
 import { SimpleDateService } from "./simple-date/simple-date.service";
 import { HttpClientModule } from "@angular/common/http";
-import { DefendantsTableComponent } from './multi-party/defendants-table/defendants-table.component';
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
-import { PlaintivesTableComponent } from './multi-party/plaintives-table/plaintives-table.component';
 import { AddressFormComponent } from './multi-party/address-form/address-form.component';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
@@ -40,8 +38,6 @@ import { ReactiveFormsModule } from '@angular/forms';
   ],
   providers: [SimpleDateService],
   declarations: [
-    DefendantsTableComponent,
-    PlaintivesTableComponent,
     AddressFormComponent
   ],
 })

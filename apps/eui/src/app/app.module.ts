@@ -14,6 +14,7 @@ import { SimpleDateComponent } from "@hmcts-common";
 import { HttpClientModule } from "@angular/common/http";
 import { AppRoutingModule } from "./app-routing.module";
 import { PhaseBannerComponent } from "../../../../libs/hmcts-ui-common/src/lib/phase-banner/phase-banner.component";
+import { APP_BASE_HREF } from "@angular/common";
 
 @NgModule({
   declarations: [AppComponent],
@@ -34,6 +35,7 @@ import { PhaseBannerComponent } from "../../../../libs/hmcts-ui-common/src/lib/p
     HttpClientModule,
     { provide: MAT_DATE_LOCALE, useValue: "en-gb" },
     { provide: LOCALE_ID, useValue: "en-gb" },
+    {provide: APP_BASE_HREF, useValue: '/microsite/nfdiv/'}
   ],
   bootstrap: [AppComponent],
 })
