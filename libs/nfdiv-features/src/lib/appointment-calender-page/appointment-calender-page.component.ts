@@ -1,4 +1,4 @@
-import { Component, Inject, LOCALE_ID, OnInit } from "@angular/core";
+import { Component, Inject, LOCALE_ID, OnDestroy, OnInit } from "@angular/core";
 import { CommonModule } from "@angular/common";
 import { AppointmentCalenderListComponent } from "../appointment-calender-list/appointment-calender-list.component";
 import { MatDatepickerModule } from "@angular/material/datepicker";
@@ -7,9 +7,10 @@ import { format } from "date-fns";
 import { DateAdapter } from "@angular/material/core";
 import { enGB } from "date-fns/locale";
 import { SaveButtonGroupComponent } from "@hmcts-common";
-import { NavigationEnd, Router, RouterModule } from "@angular/router";
+import { ActivatedRoute, NavigationEnd, Router, RouterModule } from "@angular/router";
 import { AppointmentCalendarPageService } from "./appointment-calendar-page.service";
 import { AppointmentsModel } from "../appointment.model";
+import { Subscription } from "rxjs";
 
 @Component({
   selector: "eui-appointment-calender-page",
@@ -25,16 +26,20 @@ import { AppointmentsModel } from "../appointment.model";
   templateUrl: "./appointment-calender-page.component.html",
   styleUrls: ["./appointment-calender-page.component.scss"],
 })
-export class AppointmentCalenderPageComponent implements OnInit {
+export class AppointmentCalenderPageComponent implements OnInit, OnDestroy {
+  private routerSubscription: Subscription
+  private dataSubscription  = new Subscription()
+  caseId = "";
+  caseTrigger = "";
   constructor(
     private router: Router,
+    private route: ActivatedRoute,
     @Inject(LOCALE_ID) public locale: string,
     private adapter: DateAdapter<any>,
     private service: AppointmentCalendarPageService
   ) {
-    this.router.events.subscribe((event) => {
+   this.routerSubscription =  this.router.events.subscribe((event) => {
       if (event instanceof NavigationEnd) {
-        console.log(event.url);
         this.currentRoute = event.url;
         if (this.currentRoute.includes("appointment")) {
           this.routerlinkNext = this.currentRoute + `/confirm`;
@@ -55,6 +60,15 @@ export class AppointmentCalenderPageComponent implements OnInit {
   ngOnInit() {
     this.adapter.setLocale(enGB);
     this.startDate = format(Date.now(), "dd/MM/yyyy");
+    this.dataSubscription =  this.route.data.subscribe((data) => {
+      this.caseId = data['caseId'];
+      this.caseTrigger = data['triggerType'];
+    });
+  }
+
+  ngOnDestroy() {
+    this.routerSubscription.unsubscribe();
+    this.dataSubscription.unsubscribe();
   }
 
   dateChange($event: any) {

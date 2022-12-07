@@ -20,15 +20,14 @@ export class AppointmentCheckAnswersComponent {
               ) {}
 
   async onSubmit(): Promise<void> {
-    var d = this.service.getAppointment()?.timeslot
+    const d = this.service.getAppointment()?.timeslot;
 
     // console.error(this.service.getAppointment())
-    var data = {
-
+    let data = {
       // appointmentDate: "2019-01-01T12:12:12.000"
       appointmentDate: this.service.getAppointment()?.timeslot
     };
-    var cid = this.route.snapshot.paramMap.get("cid");
+    let cid = this.route.snapshot.paramMap.get("cid");
     await this.http.post(`/microsite/nfdiv/api/case/${cid}`, data).subscribe(x => {
       window.location.href = `/cases/case-details/${cid}`
     })

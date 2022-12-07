@@ -15,6 +15,7 @@ import { HttpClientModule } from "@angular/common/http";
 import { AppRoutingModule } from "./app-routing.module";
 import { PhaseBannerComponent } from "../../../../libs/hmcts-ui-common/src/lib/phase-banner/phase-banner.component";
 import { APP_BASE_HREF } from "@angular/common";
+import { CaseResolver } from "../../../../libs/nfdiv-features/src/lib/case-resolver.service";
 
 @NgModule({
   declarations: [AppComponent],
@@ -33,6 +34,7 @@ import { APP_BASE_HREF } from "@angular/common";
   ],
   providers: [
     HttpClientModule,
+    CaseResolver,
     { provide: MAT_DATE_LOCALE, useValue: "en-gb" },
     { provide: LOCALE_ID, useValue: "en-gb" },
     {provide: APP_BASE_HREF, useValue: '/microsite/nfdiv/'}
