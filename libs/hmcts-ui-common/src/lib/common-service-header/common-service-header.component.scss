@@ -87,3 +87,29 @@
   display: inline-block;
   vertical-align: middle;
 }
+.links-container {
+  //background-color: red;
+  margin-left: 190px;
+  width: 90%;
+  display: inline-grid;
+  grid-template-columns: 3fr 1fr
+
+}
+.grid-nav {
+  grid-column-start: 1;
+  grid-column-end: 2;
+}
+.grid-search {
+  grid-column-start: 2;
+  grid-column-end: 3;
+}
+.main__container {
+  margin-left: 30px;
+  margin-right: 30px;
+}
+.header__logotype {
+  margin-left: 0px;
+}
+.sign-out {
+  float: right;
+}

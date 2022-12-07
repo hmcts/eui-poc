@@ -1,12 +1,13 @@
-<main>
+<main class="main-page">
   <eui-govuk-service-header
     [logoTypeText]="logoTypeText"
     [serviceName]="headerServiceName"
     [navLinks]="navLinks"
     [showCrownLogo]="false">
   </eui-govuk-service-header>
+  <div  class="app-phase-banner">
   <eui-phase-banner></eui-phase-banner>
-
+  </div>
   <!--  Page Dynamic content  Router content goes here-->
   <router-outlet></router-outlet>
   <eui-govuk-footer></eui-govuk-footer>
