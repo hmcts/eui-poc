@@ -31,6 +31,8 @@
 }
  .hmcts-primary-navigation__link
  {
+   padding-bottom: 13px;
+   padding-top: 12px;
    color: #fff;
    position: relative;
    text-decoration: underline;
@@ -40,3 +42,11 @@
    position: relative;
    text-decoration: none;
  }
+.transparent-background a:focus {
+  color: #0b0c0c!important;
+  background-color: #fd0!important;
+}
+.hmcts-primary-navigation__link[aria-current]:focus {
+  color: #0b0c0c;
+  position: relative;
+}

@@ -69,6 +69,14 @@
 .hmcts-header__navigation-link {
   color: #ffffff;
 }
+.hmcts-header__navigation-link:focus {
+  color: #0b0c0c;
+}
+.hmcts-header__navigation-link:focus {
+  a:focus{
+  color: #0b0c0c;
+}
+}
 .hmcts-header__navigation-link:visited {
   color: inherit;
 }
@@ -88,12 +96,12 @@
   vertical-align: middle;
 }
 .links-container {
+  height: 40px;
   //background-color: red;
   margin-left: 190px;
   width: 90%;
   display: inline-grid;
   grid-template-columns: 3fr 1fr
-
 }
 .grid-nav {
   grid-column-start: 1;
@@ -112,4 +120,12 @@
 }
 .sign-out {
   float: right;
+}
+.transparent-background a:focus {
+  color: #0b0c0c!important;
+  background-color: #fd0!important;
+}
+.hmcts-primary-navigation__link[aria-current]:focus {
+  color: #0b0c0c;
+  position: relative;
 }
