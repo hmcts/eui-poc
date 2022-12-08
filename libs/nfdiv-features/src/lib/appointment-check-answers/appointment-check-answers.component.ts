@@ -7,6 +7,8 @@ import { WindowService } from "../../../../hmcts-ui-common/src/lib/services/wind
 
 
 //TODO -- Populate with dynamic data
+// Change buttons are static at present tap into the history api or other dynamic
+// mechanism
 @Component({
   selector: 'eui-appointment-confirm',
   standalone: true,
@@ -15,6 +17,7 @@ import { WindowService } from "../../../../hmcts-ui-common/src/lib/services/wind
   styleUrls: ['./appointment-confirm.component.scss']
 })
 export class AppointmentCheckAnswersComponent {
+  changeBack = ''
   constructor(public service: AppointmentCalendarPageService,
               private windowService: WindowService,
               private route: ActivatedRoute,
@@ -30,6 +33,7 @@ export class AppointmentCheckAnswersComponent {
       appointmentDate: this.service.getAppointment()?.timeslot
     };
     let cid = this.route.snapshot.paramMap.get("cid");
+    this.changeBack = `case-details/${cid}/trigger/update-appointment`
     await this.http.post(`/microsite/nfdiv/api/case/${cid}`, data).subscribe(x => {
       window.location.href = `/cases/case-details/${cid}`
     })

@@ -13,7 +13,7 @@
               {{ service.getAppointment()?.timeslot | date: 'medium' }}
             </dd>
             <dd class="govuk-summary-list__actions">
-              <a class="govuk-link" href="#">
+              <a class="govuk-link" (click)="onClick($event)">
                 Change<span class="govuk-visually-hidden"> name</span>
               </a>
             </dd>
@@ -26,7 +26,7 @@
               {{ service.getAppointment()?.person }}
             </dd>
             <dd class="govuk-summary-list__actions">
-              <a class="govuk-link" href="#">
+              <a class="govuk-link" (click)="onClick($event)">
                 Change<span class="govuk-visually-hidden"> name</span>
               </a>
             </dd>

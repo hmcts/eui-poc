@@ -82,6 +82,7 @@ export class AppointmentCalenderPageComponent implements OnInit, OnDestroy {
       this.caseId = data['caseId'];
       this.caseTrigger = data['triggerType'];
     });
+    this.routerLinkCancel = this.onClick
   }
 
   ngOnDestroy() {
@@ -126,7 +127,6 @@ export class AppointmentCalenderPageComponent implements OnInit, OnDestroy {
 
   onClick($event: MouseEvent): void {
     $event.preventDefault();
-    console.log(this.windowService.nativeWindow.history)
     this.windowService.nativeWindow.history.back();
   }
 }
