@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import {AppointmentCalendarPageService} from "../appointment-calender-page/appointment-calendar-page.service";
 import {HttpClient} from "@angular/common/http";
 import {ActivatedRoute} from "@angular/router";
+import { WindowService } from "../../../../hmcts-ui-common/src/lib/services/window.service";
 
 
 //TODO -- Populate with dynamic data
@@ -15,6 +16,7 @@ import {ActivatedRoute} from "@angular/router";
 })
 export class AppointmentCheckAnswersComponent {
   constructor(public service: AppointmentCalendarPageService,
+              private windowService: WindowService,
               private route: ActivatedRoute,
               private http: HttpClient
               ) {}
@@ -31,5 +33,10 @@ export class AppointmentCheckAnswersComponent {
     await this.http.post(`/microsite/nfdiv/api/case/${cid}`, data).subscribe(x => {
       window.location.href = `/cases/case-details/${cid}`
     })
+  }
+
+  onClick($event: MouseEvent): void {
+    $event.preventDefault();
+    this.windowService.nativeWindow.history.back();
   }
 }
