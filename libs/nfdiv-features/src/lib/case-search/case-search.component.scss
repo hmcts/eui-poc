@@ -3,3 +3,35 @@
 .icon-position {
   padding: 0;
 }
+.search-toggle__button {
+  @include govuk-font($size: 19, $weight: bold);
+  background-color: transparent;
+  border: none;
+  color: govuk-colour("white");
+  cursor: pointer;
+  display: inline-block;
+  float: right;
+  padding-top: 12px;
+  //padding-bottom: 13px;
+  padding-left: 0;
+  padding-right: 0;
+  -webkit-font-smoothing: antialiased;
+  -webkit-appearance: none;
+
+  &:after {
+    background-repeat: no-repeat;
+    background-image: url(icon-search-white.svg);
+    content: '';
+    display: inline-block;
+    height: 20px;
+    margin-left: govuk-spacing(2);
+    vertical-align: middle;
+    width: 20px;
+  }
+
+  &:focus {
+    @include govuk-focused-text;
+    position: relative;
+    z-index: 1;
+  }
+}

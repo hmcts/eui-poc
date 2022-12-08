@@ -3,9 +3,10 @@
 //
 ////@use "./libs/nfdiv-features/src/lib/hmcts";
 .govuk-header__container {
-  max-height: 100px;
+  max-height: 50px;
+  background-color: #202020;
   //margin-bottom: 20px;
-  border-bottom: 0px solid #000;
+  border-bottom: 0px solid #202020;
 }
 
 @media (min-width: 40.0625em) {
@@ -96,7 +97,7 @@
   vertical-align: middle;
 }
 .links-container {
-  height: 50px;
+  height: 40px;
   //background-color: red;
   margin-left: 190px;
   width: 90%;
@@ -108,10 +109,12 @@
   grid-column-end: 2;
 }
 .grid-search {
-  grid-column-start: 2;
-  grid-column-end: 3;
+  grid-column-start: 3;
+  grid-column-end: 4;
+  padding-right: 30px;
 }
 .main__container {
+  max-height: 70px;
   margin-left: 30px;
   margin-right: 30px;
 }
