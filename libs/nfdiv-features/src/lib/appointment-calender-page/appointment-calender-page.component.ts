@@ -11,6 +11,7 @@ import { ActivatedRoute, NavigationEnd, Router, RouterModule } from "@angular/ro
 import { AppointmentCalendarPageService } from "./appointment-calendar-page.service";
 import { AppointmentsModel } from "../appointment.model";
 import { Subscription } from "rxjs";
+import { CaseIdPipe } from "../case-id/case-id.pipe";
 
 @Component({
   selector: "eui-appointment-calender-page",
@@ -22,6 +23,7 @@ import { Subscription } from "rxjs";
     MatDatepickerModule,
     MatCardModule,
     SaveButtonGroupComponent,
+    CaseIdPipe
   ],
   templateUrl: "./appointment-calender-page.component.html",
   styleUrls: ["./appointment-calender-page.component.scss"],
