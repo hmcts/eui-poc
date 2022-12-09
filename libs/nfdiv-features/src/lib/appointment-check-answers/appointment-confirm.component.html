@@ -1,0 +1,44 @@
+<div class="govuk-width-container">
+  <a href="#" class="govuk-back-link">Back</a>
+  <main class="govuk-main-wrapper " id="main-content" role="main">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds-from-desktop">
+        <h1 class="govuk-heading-l">Check your answers before sending your application</h1>
+        <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Appointment date
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ service.getAppointment()?.timeslot | date: 'medium' }}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="#">
+                Change<span class="govuk-visually-hidden"> name</span>
+              </a>
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Staff member
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ service.getAppointment()?.person }}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="#">
+                Change<span class="govuk-visually-hidden"> name</span>
+              </a>
+            </dd>
+          </div>
+        </dl>
+        <dl class="govuk-summary-list govuk-!-margin-bottom-9"></dl>
+        <h2 class="govuk-heading-m">Now send your application</h2>
+        <p class="govuk-body">By submitting this application you are confirming that, to the best of your knowledge, the details you are providing are correct.</p>
+        <button (click)="onSubmit()" type="submit" class="govuk-button" data-module="govuk-button">
+          Accept and send
+        </button>
+      </div>
+    </div>
+  </main>
+</div>

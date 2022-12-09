@@ -1,13 +1,22 @@
 import { Route } from "@angular/router";
-import { SimpleDatePageComponent } from "./simple-date/simple-date-page/simple-date-page.component";
-import { AppointmentPageComponent } from "./appointment-page/appointment-page.component";
-import { AppointmentCalenderComponent } from "./appointment-calender/appointment-calender.component";
+import { AppointmentCalenderPageComponent } from "./appointment-calender-page/appointment-calender-page.component";
+import { AppointmentCheckAnswersComponent } from "./appointment-check-answers/appointment-check-answers.component";
+import { CaseResolver } from "./case-resolver.service";
 
 export const nfdivFeaturesRoutes: Route[] = [
-  { path: "", pathMatch: "full", component: SimpleDatePageComponent },
+  { path: "", pathMatch: "full", component: AppointmentCalenderPageComponent },
+  { path: "case-details/:cid/trigger/update-appointment",
+    pathMatch: "full", component: AppointmentCalenderPageComponent,
+  resolve: [CaseResolver]},
   {
     path: "appointment",
     pathMatch: "prefix",
-    component: AppointmentCalenderComponent,
+    component: AppointmentCalenderPageComponent,
   },
+  {
+    path: "case-details/:cid/trigger/update-appointment/confirm",
+    pathMatch: "prefix",
+    component: AppointmentCheckAnswersComponent,
+    resolve: [CaseResolver]
+  }
 ];

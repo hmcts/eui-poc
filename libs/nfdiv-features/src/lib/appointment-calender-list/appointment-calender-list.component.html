@@ -1,10 +1,12 @@
 <div>
-    <mat-list role="list">
-        <div mat-subheader>Appointment Times</div>
-        <mat-list-item *ngFor="let appt of timeslots">
-            <mat-icon matListIcon>shedule</mat-icon>
+    <div class="govuk-inset-text">
+        Please select a time for your appointment.
+    </div>
+    <mat-selection-list [multiple]=false (selectionChange)="emitSelection($event)" role="list">
+        <mat-list-option [disabled]="!appt.booked" *ngFor="let appt of appointmentTimes" [value]="appt">
+            <mat-icon matListItemIcon>schedule</mat-icon>
             <div matListItemTitle>{{appt.person}}</div>
-            <div matListItemLine>{{appt.timeslot| date:'shortime'}}</div>
-        </mat-list-item>
-    </mat-list>
+            <div matListItemLine>{{appt.timeslot| date:'medium'}}</div>
+        </mat-list-option>
+    </mat-selection-list>
 </div>

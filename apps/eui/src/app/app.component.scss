@@ -1,1 +1,11 @@
-@use "node_modules/govuk-frontend/govuk/all";
+//
+@use "./node_modules/govuk-frontend/govuk/all";
+//@use './node_modules/@hmcts/frontend/all';
+.main-page {
+  max-width: 1920px;
+  margin: 0
+}
+.app-phase-banner {
+  width: inherit;
+  padding-left: 30px;
+}

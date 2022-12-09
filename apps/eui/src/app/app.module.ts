@@ -2,9 +2,9 @@ import { LOCALE_ID, NgModule } from "@angular/core";
 import { BrowserModule } from "@angular/platform-browser";
 
 import { AppComponent } from "./app.component";
-import { CommonFooterComponent, CommonHeaderComponent } from "@hmcts-common";
+import { CommonFooterComponent, CommonHeaderComponent, CommonServiceHeaderComponent } from "@hmcts-common";
 import {
-  AppointmentCalenderComponent,
+  AppointmentCalenderPageComponent,
   NfdivFeaturesModule,
   SimpleDatePageComponent,
 } from "@nfdiv/features";
@@ -13,6 +13,9 @@ import { SaveButtonGroupComponent } from "@hmcts-common";
 import { SimpleDateComponent } from "@hmcts-common";
 import { HttpClientModule } from "@angular/common/http";
 import { AppRoutingModule } from "./app-routing.module";
+import { PhaseBannerComponent } from "../../../../libs/hmcts-ui-common/src/lib/phase-banner/phase-banner.component";
+import { APP_BASE_HREF } from "@angular/common";
+import { CaseResolver } from "../../../../libs/nfdiv-features/src/lib/case-resolver.service";
 
 @NgModule({
   declarations: [AppComponent],
@@ -21,16 +24,20 @@ import { AppRoutingModule } from "./app-routing.module";
     CommonHeaderComponent,
     CommonFooterComponent,
     NfdivFeaturesModule,
-    AppointmentCalenderComponent,
+    AppointmentCalenderPageComponent,
     SaveButtonGroupComponent,
     SimpleDateComponent,
     SimpleDatePageComponent,
     AppRoutingModule,
+    CommonServiceHeaderComponent,
+    PhaseBannerComponent
   ],
   providers: [
     HttpClientModule,
+    CaseResolver,
     { provide: MAT_DATE_LOCALE, useValue: "en-gb" },
     { provide: LOCALE_ID, useValue: "en-gb" },
+    {provide: APP_BASE_HREF, useValue: '/microsite/nfdiv/'}
   ],
   bootstrap: [AppComponent],
 })

@@ -8,6 +8,15 @@ import { MatCardModule } from "@angular/material/card";
 import { CdkScrollableModule } from "@angular/cdk/scrolling";
 import { SimpleDateService } from "./simple-date/simple-date.service";
 import { HttpClientModule } from "@angular/common/http";
+import { MatTableModule } from '@angular/material/table';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatSortModule } from '@angular/material/sort';
+import { AddressFormComponent } from './multi-party/address-form/address-form.component';
+import { MatInputModule } from '@angular/material/input';
+import { MatButtonModule } from '@angular/material/button';
+import { MatSelectModule } from '@angular/material/select';
+import { MatRadioModule } from '@angular/material/radio';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   imports: [
@@ -18,7 +27,18 @@ import { HttpClientModule } from "@angular/common/http";
     MatDateFnsModule,
     MatCardModule,
     RouterModule.forChild(nfdivFeaturesRoutes),
+    MatTableModule,
+    MatPaginatorModule,
+    MatSortModule,
+    MatInputModule,
+    MatButtonModule,
+    MatSelectModule,
+    MatRadioModule,
+    ReactiveFormsModule,
   ],
   providers: [SimpleDateService],
+  declarations: [
+    AddressFormComponent
+  ],
 })
 export class NfdivFeaturesModule {}

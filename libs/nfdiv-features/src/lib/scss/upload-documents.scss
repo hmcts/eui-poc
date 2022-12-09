@@ -1,0 +1,44 @@
+.upload {
+  border: 2px dashed govuk-colour('mid-grey');
+}
+
+//TODO there is not even an asset here for upload-arrow-icon.svg
+// this pacakgee is four years out of date not being used so comment out for the time being
+// until we get time to investigate
+//
+//.upload-arrow-icon {
+//  background: url('/img/upload-arrow-icon.svg');
+//  background-size: 100% 100%;
+//  background-repeat: no-repeat;
+//  display: inline-block;
+//  height: 90px;
+//  width: 90px;
+//}
+
+.uppy-FileInput-btn {
+  margin-bottom: 0;
+}
+
+@keyframes background-fade {
+  0% {
+    background-color: #fdefcc;
+  }
+  100% {
+    background-color: inherit;
+  }
+}
+
+.uploaded {
+  animation: background-fade 3s;
+}
+
+.uploadedFile {
+  justify-content: space-between;
+  display: flex;
+  overflow-wrap: anywhere;
+}
+
+.uploadedFile a {
+  overflow-wrap: normal;
+  height: 100%;
+}

@@ -1,0 +1,40 @@
+@import 'govuk-frontend';
+@import '../node_modules/@hmcts/frontend/all';
+
+@import './banner';
+@import './header';
+@import './contact-us';
+@import './upload-documents';
+@import './application-submitted';
+@import './hub-page';
+@import './cookie-banner';
+@import './check-your-answers';
+@import './webchat';
+@import './review-pages';
+
+.hmcts-button-link,
+.uppy-FileInput-btn {
+  @extend %govuk-body-m;
+  @extend %govuk-link;
+  @include govuk-link-style-default;
+
+  background: none;
+  color: $govuk-link-colour;
+  border: none;
+  padding: 0;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+section {
+  margin-bottom: 2em;
+}
+
+.hidden {
+  display: none;
+}
+
+.pdf-canvas {
+  border: 1px solid black;
+  direction: ltr;
+}

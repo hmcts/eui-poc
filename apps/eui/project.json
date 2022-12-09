@@ -7,18 +7,24 @@
   "targets": {
     "build": {
       "executor": "@angular-devkit/build-angular:browser",
-      "outputs": ["{options.outputPath}"],
+      "outputs": [
+        "{options.outputPath}"
+      ],
       "options": {
-        "localize": true,
-        "outputPath": "dist/apps/eui",
+        "outputPath": "dist/apps/",
+        "resourcesOutputPath": "/",
         "index": "apps/eui/src/index.html",
         "main": "apps/eui/src/main.ts",
-        "polyfills": ["zone.js"],
+        "baseHref": "/microsite/nfdiv/",
+        "deployUrl": "/microsite/nfdiv/",
+        "polyfills": [
+          "zone.js"
+        ],
         "tsConfig": "apps/eui/tsconfig.app.json",
         "inlineStyleLanguage": "scss",
         "assets": [
           "apps/eui/src/favicon.ico",
-          "apps/eui/src/assets"
+          "apps/eui/src/assets/"
         ],
         "styles": [
           "apps/eui/src/styles.scss",
@@ -51,7 +57,7 @@
           "namedChunks": true
         }
       },
-      "defaultConfiguration": "production"
+      "defaultConfiguration": "development"
     },
     "serve": {
       "executor": "@angular-devkit/build-angular:dev-server",
@@ -63,7 +69,10 @@
           "browserTarget": "eui:build:development"
         }
       },
-      "defaultConfiguration": "development"
+      "defaultConfiguration": "development",
+      "options": {
+        "proxyConfig": "apps/eui/proxy.conf.json"
+      }
     },
     "extract-i18n": {
       "executor": "@angular-devkit/build-angular:extract-i18n",
@@ -82,7 +91,9 @@
     },
     "test": {
       "executor": "@nrwl/jest:jest",
-      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "outputs": [
+        "{workspaceRoot}/coverage/{projectRoot}"
+      ],
       "options": {
         "jestConfig": "apps/eui/jest.config.ts",
         "passWithNoTests": true

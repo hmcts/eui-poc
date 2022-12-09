@@ -1,0 +1,19 @@
+### Get all caseworkers
+
+GET http://localhost:3333/api/caseworker/
+
+### Get one caseworker by id
+
+GET http://localhost:3333/api/caseworker/1
+
+
+### Create a new caseworker
+
+POST http://localhost:3333/api/caseworker/
+Content-type: application/json
+
+{
+  "firstName": "Fred",
+  "lastName": "Bloggs",
+   "email": "fred@greatfirm.com"
+}

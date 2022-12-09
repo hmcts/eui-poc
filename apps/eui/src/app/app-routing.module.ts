@@ -3,7 +3,13 @@ import { RouterModule, Routes } from "@angular/router";
 import { SimpleDatePageComponent } from "@nfdiv/features";
 
 export const routes: Routes = [
-  { path: "", component: SimpleDatePageComponent },
+  {
+    path: "",
+    loadChildren: () =>
+      import("../../../../libs/nfdiv-features/src/lib/lib.routes").then(
+        (mod) => mod.nfdivFeaturesRoutes
+      ),
+  },
   {
     path: "appointment",
     loadChildren: () =>

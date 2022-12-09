@@ -1,7 +1,8 @@
-import { Component } from "@angular/core";
+import { Component, EventEmitter, Input, Output } from "@angular/core";
 import { CommonModule } from "@angular/common";
-import { MatListModule } from "@angular/material/list";
+import { MatListModule, MatSelectionListChange } from "@angular/material/list";
 import { MatIconModule } from "@angular/material/icon";
+import { SelectionChange } from "@angular/cdk/collections";
 
 interface Appointments {
   person: string;
@@ -12,15 +13,17 @@ interface Appointments {
 @Component({
   selector: "eui-appointment-calender-list",
   standalone: true,
-  imports: [CommonModule, MatListModule, MatIconModule],
+  imports: [ CommonModule, MatListModule, MatIconModule],
   templateUrl: "./appointment-calender-list.component.html",
   styleUrls: ["./appointment-calender-list.component.scss"],
 })
 export class AppointmentCalenderListComponent {
-  timeslots: Appointments[] = [
-    { person: "Mike Tyson", timeslot: new Date(), booked: true },
-    { person: "Mary Tyler", timeslot: new Date(), booked: true },
-    { person: "Fred Bloggs", timeslot: new Date(), booked: true },
-    { person: "Jules Verne", timeslot: new Date(), booked: true },
-  ];
+  @Input()
+  appointmentTimes: Appointments[] | undefined
+  @Output()
+  valueSelected = new EventEmitter<any>()
+
+  emitSelection($event: MatSelectionListChange) {
+    this.valueSelected.emit($event.options[0].value);
+  }
 }
