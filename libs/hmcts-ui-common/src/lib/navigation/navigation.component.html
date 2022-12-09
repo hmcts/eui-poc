@@ -1,6 +1,7 @@
-<nav aria-label="Menu" class="govuk-header__navigation ">
+<nav aria-label="Menu" class="hmcts-primary-navigation transparent-background">
+ <div class="hmcts-primary-navigation__container">
   <button type="button" class="govuk-header__menu-button govuk-js-header-toggle" aria-controls="navigation" aria-label="Show or hide menu" hidden>Menu</button>
-  <ul id="navigation" class="govuk-header__navigation-list hmcts-primary-navigation__list" *ngFor="let link of links">
+    <ul id="navigation" class="hmcts-primary-navigation__list" *ngFor="let link of links">
     <li class=" hmcts-primary-navigation__link transparent-background
       hmcts-primary-navigation__item
       hmcts-primary-navigation__item--active">
@@ -9,4 +10,5 @@
       </a>
     </li>
   </ul>
+ </div>
 </nav>
