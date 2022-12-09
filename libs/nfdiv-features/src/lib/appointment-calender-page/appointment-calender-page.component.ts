@@ -10,8 +10,10 @@ import { SaveButtonGroupComponent } from "@hmcts-common";
 import { ActivatedRoute, NavigationEnd, Router, RouterModule } from "@angular/router";
 import { AppointmentCalendarPageService } from "./appointment-calendar-page.service";
 import { AppointmentsModel } from "../appointment.model";
-import { Subscription } from "rxjs";
+import { BehaviorSubject, Subscription } from "rxjs";
 import { CaseIdPipe } from "../case-id/case-id.pipe";
+import { RouterHistoryService } from "../../../../hmcts-ui-common/src/lib/services/router-history.service";
+import { WindowService } from "../../../../hmcts-ui-common/src/lib/services/window.service";
 
 @Component({
   selector: "eui-appointment-calender-page",
@@ -31,6 +33,15 @@ import { CaseIdPipe } from "../case-id/case-id.pipe";
 export class AppointmentCalenderPageComponent implements OnInit, OnDestroy {
   private routerSubscription: Subscription
   private dataSubscription  = new Subscription()
+  previousUrlViaNavigationEnd$ = new BehaviorSubject<string | null>(null);
+  currentUrlViaNavigationEnd$ = new BehaviorSubject<string | null>(null);
+
+  previousUrlViaRoutesRecognized$ = new BehaviorSubject<string | null>(null);
+  currentUrlViaRoutesRecognized$ = new BehaviorSubject<string | null>(null);
+
+  // Via RouterHistoryService
+  previousUrlViaRouterHistoryService$ = this.historyService.previousUrl$;
+  currentUrlViaRouterHistoryService$ = this.historyService.currentUrl$;
   caseId = "";
   caseTrigger = "";
   constructor(
@@ -38,11 +49,16 @@ export class AppointmentCalenderPageComponent implements OnInit, OnDestroy {
     private route: ActivatedRoute,
     @Inject(LOCALE_ID) public locale: string,
     private adapter: DateAdapter<any>,
-    private service: AppointmentCalendarPageService
+    private service: AppointmentCalendarPageService,
+    private historyService : RouterHistoryService,
+    private windowService: WindowService
   ) {
    this.routerSubscription =  this.router.events.subscribe((event) => {
       if (event instanceof NavigationEnd) {
         this.currentRoute = event.url;
+        this.previousUrlViaNavigationEnd$.next(
+          this.currentUrlViaNavigationEnd$.value
+        );
         if (this.currentRoute.includes("appointment")) {
           this.routerlinkNext = this.currentRoute + `/confirm`;
         } else {
@@ -66,6 +82,7 @@ export class AppointmentCalenderPageComponent implements OnInit, OnDestroy {
       this.caseId = data['caseId'];
       this.caseTrigger = data['triggerType'];
     });
+    this.routerLinkCancel = this.onClick
   }
 
   ngOnDestroy() {
@@ -106,5 +123,10 @@ export class AppointmentCalenderPageComponent implements OnInit, OnDestroy {
     console.log("got a value", $event);
     this.service.setAppointment($event as AppointmentsModel);
     this.continue = $event != undefined;
+  }
+
+  onClick($event: MouseEvent): void {
+    $event.preventDefault();
+    this.windowService.nativeWindow.history.back();
   }
 }

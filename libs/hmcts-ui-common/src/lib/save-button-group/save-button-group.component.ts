@@ -1,6 +1,7 @@
 import { Component, Input } from "@angular/core";
 import { CommonModule } from "@angular/common";
 import { RouterLink } from "@angular/router";
+import { WindowService } from "../services/window.service";
 
 @Component({
   // eslint-disable-next-line @angular-eslint/component-selector
@@ -17,4 +18,12 @@ export class SaveButtonGroupComponent {
   nextUrl: string | undefined;
   @Input()
   backUrl: string | undefined;
+  constructor(private windowService: WindowService) {
+  }
+
+  // TODO -- provide an override here back URL
+  onClick($event: MouseEvent) {
+    $event.preventDefault();
+    this.windowService.nativeWindow.history.back();
+  }
 }
