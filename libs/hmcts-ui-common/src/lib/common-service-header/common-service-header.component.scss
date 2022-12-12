@@ -3,12 +3,14 @@
 //
 ////@use "./libs/nfdiv-features/src/lib/hmcts";
 .hmcts-header{
-  min-height: 90px;
+  min-height: 70px;
+  max-height: 90px;
   max-width: 1920px;
   display: flex;
   flex-direction: column;
   background-color: #202020;
   padding-top: 10px;
+  padding-bottom: 10px;
   padding-right: 30px;
   padding-left: 30px;
 }
@@ -108,7 +110,7 @@
 }
 }
 .hmcts-header__navigation-link:visited {
-  color: inherit;
+  color: white;
 }
 .govuk-link, a {
   font-family: "GDS Transport",arial,sans-serif;
