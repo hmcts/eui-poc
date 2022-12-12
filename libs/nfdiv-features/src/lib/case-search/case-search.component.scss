@@ -9,7 +9,6 @@
   border: none;
   color: govuk-colour("white");
   cursor: pointer;
-  display: inline-block;
   float: right;
   padding-top: 12px;
   //padding-bottom: 13px;
@@ -22,7 +21,7 @@
     background-repeat: no-repeat;
     background-image: url(icon-search-white.svg);
     content: '';
-    display: inline-block;
+    display: inline-flex;
     height: 20px;
     margin-left: govuk-spacing(2);
     vertical-align: middle;

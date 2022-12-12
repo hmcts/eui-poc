@@ -1,8 +1,6 @@
-<header class="govuk-header" role="banner" data-module="govuk-header">
-  <div style="background-color: #202020">
-
+<header role="banner" data-module="govuk-header">
     <div class="hmcts-header transparent-background">
-      <div class="hmcts-header__container">
+      <div class="hmcts-header__container" style=" display: flex;">
         <div class="govuk-header__logo">
           <a href="#" class="govuk-header__link govuk-header__link--homepage">
         <span class="govuk-header__logotype header__logotype">
@@ -37,9 +35,8 @@
         >
       </div>
       <div class="hmcts-header__content">
-        <eui-navigation  [links]="navLinks"></eui-navigation>
+        <eui-navigation class="nav-padding" [links]="navLinks"></eui-navigation>
         <eui-case-search class="grid-search"></eui-case-search>
       </div>
     </div>
-  </div>
 </header>
