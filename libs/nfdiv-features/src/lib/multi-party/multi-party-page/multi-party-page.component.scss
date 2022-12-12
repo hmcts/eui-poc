@@ -1,3 +1,8 @@
+//:host{
+//  display: flex;
+//  justify-content: space-between;
+//  align-content: center;
+//}
 .page-wrapper {
   padding-left: 30px;
   padding-right: 30px;
@@ -6,8 +11,10 @@
   display:flex;
   justify-content: flex-end;
   align-content: center;
+  gap: 12px;
 }
 .button-icons {
+  background-color: #1d70b8;
   padding: 12px;
   align-self: center;
 }

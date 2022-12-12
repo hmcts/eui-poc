@@ -7,12 +7,14 @@ import { Subscription } from "rxjs";
 import { CaseIdPipe } from "../../case-id/case-id.pipe";
 import { FormsModule } from "@angular/forms";
 import { MatListModule, MatSelectionList, MatSelectionListChange } from "@angular/material/list";
-import { MatIconModule } from "@angular/material/icon";
+import { MatIcon, MatIconModule } from "@angular/material/icon";
+import { MatButtonModule } from "@angular/material/button";
+
 
 @Component({
   selector: "eui-multi-party-page",
   standalone: true,
-  imports: [CommonModule, CaseIdPipe, FormsModule, MatListModule, MatIconModule],
+  imports: [CommonModule, CaseIdPipe, FormsModule, MatListModule, MatButtonModule, MatIconModule],
   templateUrl: "./multi-party-page.component.html",
   styleUrls: ["./multi-party-page.component.scss"],
 })
@@ -39,6 +41,7 @@ export class MultiPartyPageComponent implements OnInit, OnDestroy {
       this.caseId = data["caseId"];
       this.caseTrigger = data["triggerType"];
     });
+    this.parties = this.createDummyData();
   }
 
   ngOnDestroy() {
@@ -72,9 +75,17 @@ export class MultiPartyPageComponent implements OnInit, OnDestroy {
       this.editIcons = Boolean(this.partiesList?.selectedOptions.selected.length > 0)
     }
   }
+
+  private createDummyData():Party[] {
+    let retValue = new Array<Party>();
+    retValue.push({firstName: 'party1_firstName', lastName:'party1_lastName'} as Party),
+    retValue.push( {firstName: 'party2_firstName', lastName:'party2_lastName'} as Party)
+    return retValue;
+  }
 }
 
 interface Party {
   firstName: string;
   lastName: string;
 }
+
