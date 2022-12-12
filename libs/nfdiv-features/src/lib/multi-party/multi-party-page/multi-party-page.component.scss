@@ -1,0 +1,27 @@
+.page-wrapper {
+  padding-left: 30px;
+  padding-right: 30px;
+}
+.button-row {
+  display:flex;
+  justify-content: flex-end;
+  align-content: center;
+}
+.button-icons {
+  padding: 12px;
+  align-self: center;
+}
+.case-id {
+  display:flex;
+  justify-content: space-between;
+  align-content: center;
+}
+
+.edit-form {
+  max-width: 50%;
+}
+
+.parties-list {
+  display: flex;
+  flex-direction: row-reverse;
+}

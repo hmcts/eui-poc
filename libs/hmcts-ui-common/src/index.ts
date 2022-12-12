@@ -4,3 +4,5 @@ export * from "./lib/common-header/common-header.component";
 export * from "./lib/common-service-header/common-service-header.component";
 export * from "./lib/common-footer/common-footer.component";
 export * from "./lib/simple-date/simple-date.component";
+export * from "./lib/services/router-history.service"
+export * from "./lib/services/window.service"

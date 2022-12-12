@@ -17,6 +17,8 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatSelectModule } from '@angular/material/select';
 import { MatRadioModule } from '@angular/material/radio';
 import { ReactiveFormsModule } from '@angular/forms';
+import { PartiesTableComponent } from './multi-party/parties-table/parties-table.component';
+import { DependantsTableComponent } from './multi-party/dependants-table/dependants-table.component';
 
 @NgModule({
   imports: [
@@ -38,7 +40,9 @@ import { ReactiveFormsModule } from '@angular/forms';
   ],
   providers: [SimpleDateService],
   declarations: [
-    AddressFormComponent
+    AddressFormComponent,
+    PartiesTableComponent,
+    DependantsTableComponent
   ],
 })
 export class NfdivFeaturesModule {}
