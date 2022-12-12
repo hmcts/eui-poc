@@ -16,7 +16,7 @@
         "index": "apps/eui/src/index.html",
         "main": "apps/eui/src/main.ts",
         "baseHref": "/microsite/nfdiv/",
-        "deployUrl": "/",
+        "deployUrl": "/microsite/nfdiv/",
         "polyfills": [
           "zone.js"
         ],
