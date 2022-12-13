@@ -9,7 +9,7 @@ import { FormsModule } from "@angular/forms";
 import { MatListModule, MatSelectionList, MatSelectionListChange } from "@angular/material/list";
 import { MatIcon, MatIconModule } from "@angular/material/icon";
 import { MatButtonModule } from "@angular/material/button";
-
+import { v4 as uuidv4 } from 'uuid';
 
 @Component({
   selector: "eui-multi-party-page",
@@ -54,7 +54,7 @@ export class MultiPartyPageComponent implements OnInit, OnDestroy {
 
   addParty() {
     if (this.firstName.length && this.lastName.length) {
-      let party = {firstName: this.firstName,lastName: this.lastName} as Party
+      let party = {id: uuidv4(), firstName: this.firstName,lastName: this.lastName} as Party
       this.parties.push(party);
       this.firstName  =''
       this.lastName  =''
@@ -63,11 +63,14 @@ export class MultiPartyPageComponent implements OnInit, OnDestroy {
   }
 
   deleteItem($event: MouseEvent) {
-    
+    const selectedID = this.getSelectedItem()?.id;
+    if (selectedID) {
+      this.deleteSelectedItem(selectedID)
+    }
   }
 
   editItem($event: MouseEvent) {
-    
+    console.log($event)
   }
 
   emitSelection($event: MatSelectionListChange) {
@@ -78,13 +81,23 @@ export class MultiPartyPageComponent implements OnInit, OnDestroy {
 
   private createDummyData():Party[] {
     let retValue = new Array<Party>();
-    retValue.push({firstName: 'party1_firstName', lastName:'party1_lastName'} as Party),
-    retValue.push( {firstName: 'party2_firstName', lastName:'party2_lastName'} as Party)
+    retValue.push({id: uuidv4(), firstName: 'party1_firstName', lastName:'party1_lastName'} as Party),
+    retValue.push( {id: uuidv4(),firstName: 'party2_firstName', lastName:'party2_lastName'} as Party)
     return retValue;
+  }
+
+  private getSelectedItem():Party | undefined {
+    return this.partiesList?.selectedOptions.selected[0].value
+  }
+
+  private deleteSelectedItem(selectedID: string) {
+    const indexToRemove = this.parties.findIndex(x => x.id === selectedID );
+    this.parties.splice(indexToRemove, 1);
   }
 }
 
 interface Party {
+  id: string;
   firstName: string;
   lastName: string;
 }
