@@ -3,13 +3,17 @@ import { CommonModule } from "@angular/common";
 import { RouterHistoryService } from "@hmcts-common";
 import { WindowService } from "@hmcts-common";
 import { ActivatedRoute } from "@angular/router";
-import { Subscription } from "rxjs";
+import { Observable, Subscription } from "rxjs";
 import { CaseIdPipe } from "../../case-id/case-id.pipe";
 import { FormsModule } from "@angular/forms";
 import { MatListModule, MatSelectionList, MatSelectionListChange } from "@angular/material/list";
 import { MatIcon, MatIconModule } from "@angular/material/icon";
 import { MatButtonModule } from "@angular/material/button";
 import { v4 as uuidv4 } from 'uuid';
+import { Party } from "@hmcts-data";
+import { PartyService } from "../../services/party.service";
+import { MockPartyService } from "@nfdiv/features";
+
 
 @Component({
   selector: "eui-multi-party-page",
@@ -23,25 +27,29 @@ export class MultiPartyPageComponent implements OnInit, OnDestroy {
   private dataSubscription = new Subscription();
   public caseId = "";
   private caseTrigger = "";
+  public addMode = false;
   public editMode = false;
   public editIcons = false;
   public selected = false;
-  parties: Party[] = [];
+  parties$: Observable<Party[]> | undefined;
   firstName  =''
   lastName  =''
+
 
   constructor(
     public routerHistoryService: RouterHistoryService,
     private windowService: WindowService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private partyService: MockPartyService
   ) {}
 
   ngOnInit() {
+    this.parties$ = this.partyService.parties$;
     this.dataSubscription = this.route.data.subscribe((data) => {
       this.caseId = data["caseId"];
       this.caseTrigger = data["triggerType"];
     });
-    this.parties = this.createDummyData();
+
   }
 
   ngOnDestroy() {
@@ -49,16 +57,16 @@ export class MultiPartyPageComponent implements OnInit, OnDestroy {
   }
 
   showAddForm() {
-    this.editMode = true;
+    this.addMode = true;
   }
 
   addParty() {
     if (this.firstName.length && this.lastName.length) {
       let party = {id: uuidv4(), firstName: this.firstName,lastName: this.lastName} as Party
-      this.parties.push(party);
+      this.partyService.addParty(party)
       this.firstName  =''
       this.lastName  =''
-      this.editMode = false;
+      this.addMode = false;
     }
   }
 
@@ -70,7 +78,10 @@ export class MultiPartyPageComponent implements OnInit, OnDestroy {
   }
 
   editItem($event: MouseEvent) {
-    console.log($event)
+    const selectedID = this.getSelectedItem()?.id;
+    if (selectedID) {
+      this.editSelectedItem(selectedID);
+    }
   }
 
   emitSelection($event: MatSelectionListChange) {
@@ -79,26 +90,31 @@ export class MultiPartyPageComponent implements OnInit, OnDestroy {
     }
   }
 
-  private createDummyData():Party[] {
-    let retValue = new Array<Party>();
-    retValue.push({id: uuidv4(), firstName: 'party1_firstName', lastName:'party1_lastName'} as Party),
-    retValue.push( {id: uuidv4(),firstName: 'party2_firstName', lastName:'party2_lastName'} as Party)
-    return retValue;
-  }
+
 
   private getSelectedItem():Party | undefined {
     return this.partiesList?.selectedOptions.selected[0].value
   }
 
   private deleteSelectedItem(selectedID: string) {
-    const indexToRemove = this.parties.findIndex(x => x.id === selectedID );
-    this.parties.splice(indexToRemove, 1);
+    this.partyService.deleteParty(selectedID)
+  }
+
+  private editSelectedItem(selectedID: string) {
+    const itemToEdit = this.partyService.getPartyById(selectedID)
+    this.firstName  = itemToEdit.firstName
+    this.lastName  = itemToEdit.lastName
+    this.editMode = true;
+  }
+
+  submitEdit() {
+
+  }
+
+  cancelEdit() {
+
   }
 }
 
-interface Party {
-  id: string;
-  firstName: string;
-  lastName: string;
-}
+
 

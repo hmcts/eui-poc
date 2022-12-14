@@ -1,47 +1,103 @@
 <div class="page-wrapper">
-<div *ngIf="caseId" class="case-id">
-<h4 style="align-self: flex-start; display: flex">Parties to Case ID {{caseId | caseId}}</h4>
-  <span class="button-row">
-  <div *ngIf="editIcons"  class="button-row">
-    <button mat-mini-fab class="button-icons"  (click)="editItem($event)" >
-      <mat-icon>edit</mat-icon>
-    </button>
+  <div *ngIf="caseId" class="case-id">
+    <h4 style="align-self: flex-start; display: flex">
+      Parties to Case ID {{ caseId | caseId }}
+    </h4>
+    <span class="button-row">
+      <div *ngIf="editIcons" class="button-row">
+        <button mat-mini-fab class="button-icons" (click)="editItem($event)">
+          <mat-icon>edit</mat-icon>
+        </button>
 
-    <button mat-mini-fab class="button-icons"  (click)="deleteItem($event)">
-      <mat-icon>delete</mat-icon></button>
-    </div>
-  <button [disabled]="editMode" (click)="showAddForm()">Add a new party</button>
-</span>
-</div>
-  <hr>
-<div *ngIf="parties.length > 0" >
-  <mat-selection-list [multiple]="false" (selectionChange)="emitSelection($event)" #partiesList  role="list">
-    <mat-list-option  *ngFor="let party of parties" [value]="party">
-      <div matListItemTitle>{{party.firstName}}</div>
-      <div matListItemLine>{{party.lastName}}</div>
-    </mat-list-option>
-  </mat-selection-list>
-  <hr>
-</div>
-<div *ngIf="parties.length === 0">
-  <p>This case currently has no parties assigned</p>
-  <hr>
-</div>
-<div *ngIf="editMode" class="edit-form" >
-  <div class="govuk-form-group">
-    <h1 class="govuk-label-wrapper">
-      <label class="govuk-label govuk-label--l" for="first-name">
-      First name
-    </label>
-    </h1>
-    <input class="govuk-input" id="first-name" [(ngModel)]="firstName" name="first-name" type="text">
-    <h1 class="govuk-label-wrapper">
-      <label class="govuk-label govuk-label--l" for="last-name">
-        Last name
-      </label>
-    </h1>
-    <input class="govuk-input" id="last-name" [(ngModel)]="lastName" name="last-name" type="text">
+        <button mat-mini-fab class="button-icons" (click)="deleteItem($event)">
+          <mat-icon>delete</mat-icon>
+        </button>
+      </div>
+      <button [disabled]="editMode" (click)="showAddForm()">
+        Add a new party
+      </button>
+    </span>
   </div>
-  <button (click)="addParty()">Add party</button>
-</div>
+  <hr />
+  <div *ngIf="parties$ | async as parties">
+    <div *ngIf="parties.length > 0; else noData">
+      <mat-selection-list
+        [multiple]="false"
+        (selectionChange)="emitSelection($event)"
+        #partiesList
+        role="list"
+      >
+        <mat-list-option *ngFor="let party of parties" [value]="party">
+          <div matListItemTitle>{{ party.firstName }}</div>
+          <div matListItemLine>{{ party.lastName }}</div>
+        </mat-list-option>
+      </mat-selection-list>
+      <hr />
+    </div>
+    <ng-template #noData>
+      <div>
+        <p>This case currently has no parties assigned</p>
+        <hr />
+      </div>
+    </ng-template>
+  </div>
+  <div *ngIf="editMode" class="edit-form">
+    <div class="govuk-form-group">
+      <h1 class="govuk-label-wrapper">
+        <label class="govuk-label govuk-label--l" for="first-name">
+          First name
+        </label>
+      </h1>
+      <input
+        class="govuk-input"
+        id="first-name"
+        [(ngModel)]="firstName"
+        name="first-name"
+        type="text"
+      />
+      <h1 class="govuk-label-wrapper">
+        <label class="govuk-label govuk-label--l" for="last-name">
+          Last name
+        </label>
+      </h1>
+      <input
+        class="govuk-input"
+        id="last-name"
+        [(ngModel)]="lastName"
+        name="last-name"
+        type="text"
+      />
+    </div>
+    <button (click)="submitEdit()">OK</button>
+    <button (click)="cancelEdit()">Cancel</button>
+  </div>
+  <div *ngIf="addMode" class="edit-form">
+    <div class="govuk-form-group">
+      <h1 class="govuk-label-wrapper">
+        <label class="govuk-label govuk-label--l" for="first-name">
+          First name
+        </label>
+      </h1>
+      <input
+        class="govuk-input"
+        id="first-name"
+        [(ngModel)]="firstName"
+        name="first-name"
+        type="text"
+      />
+      <h1 class="govuk-label-wrapper">
+        <label class="govuk-label govuk-label--l" for="last-name">
+          Last name
+        </label>
+      </h1>
+      <input
+        class="govuk-input"
+        id="last-name"
+        [(ngModel)]="lastName"
+        name="last-name"
+        type="text"
+      />
+    </div>
+    <button (click)="addParty()">Add party</button>
+  </div>
 </div>

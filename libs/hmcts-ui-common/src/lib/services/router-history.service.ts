@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 import { Router, NavigationStart, NavigationEnd, RouterEvent } from "@angular/router";
 import { filter, scan } from 'rxjs/operators';
-import { RouterHistory } from '../models/router-history';
+import { RouterHistory } from '../../../../hmcts-models/router-history';
 
 @Injectable({
   providedIn: 'root'

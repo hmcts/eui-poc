@@ -21,6 +21,9 @@
       "@hmcts-common": [
         "libs/hmcts-ui-common/src/index.ts"
       ],
+      "@hmcts-data": [
+        "libs/hmcts-models/index.ts"
+      ],
       "@nfdiv/features": [
         "libs/nfdiv-features/src/index.ts"
       ]
