@@ -21,7 +21,7 @@
   <hr />
   <div *ngIf="parties$ | async as parties">
     <div *ngIf="parties.length > 0; else noData">
-      <mat-selection-list
+      <mat-selection-list #selectionList
         [multiple]="false"
         (selectionChange)="emitSelection($event)"
         #partiesList

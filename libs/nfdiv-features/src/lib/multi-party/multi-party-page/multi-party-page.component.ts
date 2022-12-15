@@ -57,6 +57,7 @@ export class MultiPartyPageComponent implements OnInit, OnDestroy {
 
   showAddForm() {
     this.addMode = true;
+    this.clearListSelection()
   }
 
   addParty() {
@@ -66,6 +67,7 @@ export class MultiPartyPageComponent implements OnInit, OnDestroy {
       this.firstName  =''
       this.lastName  =''
       this.addMode = false;
+      this.clearListSelection();
     }
   }
 
@@ -73,6 +75,7 @@ export class MultiPartyPageComponent implements OnInit, OnDestroy {
     const selectedID = this.getSelectedItem()?.id;
     if (selectedID) {
       this.deleteSelectedItem(selectedID)
+      this.partiesList?.deselectAll();
     }
   }
 
@@ -89,6 +92,10 @@ export class MultiPartyPageComponent implements OnInit, OnDestroy {
     }
   }
 
+  private clearListSelection(){
+    this.editIcons = false;
+    this.partiesList?.deselectAll();
+  }
 
 
   private getSelectedItem():Party | undefined {
@@ -97,6 +104,7 @@ export class MultiPartyPageComponent implements OnInit, OnDestroy {
 
   private deleteSelectedItem(selectedID: string) {
     this.partyService.deleteParty(selectedID)
+    this.partiesList?.deselectAll();
   }
 
   private editSelectedItem(selectedID: string) {
@@ -107,11 +115,19 @@ export class MultiPartyPageComponent implements OnInit, OnDestroy {
   }
 
   submitEdit() {
-
+    let newItem =  {
+      id:'this.getSelectedItem().id',
+    firstName: this.firstName,
+    lastName: this.lastName
+    } as Party
+    this.partyService.updateParty(newItem);
+    this.partiesList?.deselectAll();
   }
 
   cancelEdit() {
-
+    this.firstName  =''
+    this.lastName  =''
+    this.partiesList?.deselectAll();
   }
 }
 

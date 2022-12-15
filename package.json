@@ -9,6 +9,7 @@
     "startAll": " run ./apps/gradlew withBoot",
     "build": "nx build",
     "test": "nx test",
+    "e2e": " nx e2e eui-e2e --baseUrl=http://localhost:4200  --browser=chrome",
     "cypress:open": "cypress open"
   },
   "private": true,
@@ -80,7 +81,7 @@
     "@types/uuid": "^9.0.0",
     "@typescript-eslint/eslint-plugin": "^5.36.1",
     "@typescript-eslint/parser": "^5.36.1",
-    "cypress": "^12.0.2",
+    "cypress": "12.1.0",
     "eslint": "8.28.0",
     "eslint-config-prettier": "8.1.0",
     "eslint-plugin-cypress": "^2.10.3",
