@@ -11,7 +11,6 @@ import { MatIcon, MatIconModule } from "@angular/material/icon";
 import { MatButtonModule } from "@angular/material/button";
 import { v4 as uuidv4 } from 'uuid';
 import { Party } from "@hmcts-data";
-import { PartyService } from "../../services/party.service";
 import { MockPartyService } from "@nfdiv/features";
 
 
