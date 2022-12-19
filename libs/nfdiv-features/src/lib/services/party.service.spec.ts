@@ -51,13 +51,29 @@ describe('Http testing PartyService', () => {
   });
 
   it('it can add a party and deal with the correct response', () => {
-
+    let incoming
     spectator.service.addParty(addItem).subscribe( (response) => {
-      console.log(response)
+      incoming = response
     })
     const request = spectator.expectOne(partiesURL, HttpMethod.POST);
     request.flush({id: '12345', firstName: 'Testy', lastName: 'Geezer'})
-
+    expect(incoming).toStrictEqual([
+      {
+        "firstName": "party1_firstName",
+        "id": "2d532789-32d5-49fa-a030-a72634b6196d",
+        "lastName": "party1_lastName"
+      },
+      {
+        "firstName": "party2_firstName",
+        "id": "2d532789-32d5-49fa-a030-a72634b6196d",
+        "lastName": "party2_lastName"
+      },
+      {
+        "firstName": "Testy",
+        "id": "12345",
+        "lastName": "Geezer"
+      }
+    ])
     expect(data).toBeTruthy();
     if (data) {
       expect(data[2]).toStrictEqual({
@@ -68,23 +84,35 @@ describe('Http testing PartyService', () => {
     }
   })
 
-  it('it find a party by id', () => {
+  it ('should find a party by id', () => {
+    let incoming
+    // spectator.service.addParty(addItem).subscribe( (response) => {
+    //   incoming = response
+    // })
+    // const request = spectator.expectOne(partiesURL, HttpMethod.POST);
+    // request.flush({id: '12345', firstName: 'Testy', lastName: 'Geezer'})
 
-    spectator.service.getPartyById('12345').subscribe( (response) => {
-      data = [response]
-    })
-
-    const request = spectator.expectOne(partiesURL + '/id/12345', HttpMethod.GET);
-    request.flush({id: '12345', firstName: 'Testy', lastName: 'Geezer'})
-
-    expect(data).toBeTruthy();
-    if (data) {
-      expect(data[0]).toStrictEqual({
-        "id": "12345",
-        "firstName": "Testy",
-        "lastName": "Geezer",
-      })
-    }
+    // expect(incoming).toStrictEqual([
+    //   {
+    //     "firstName": "party1_firstName",
+    //     "id": "2d532789-32d5-49fa-a030-a72634b6196d",
+    //     "lastName": "party1_lastName"
+    //   },
+    //   {
+    //     "firstName": "party2_firstName",
+    //     "id": "2d532789-32d5-49fa-a030-a72634b6196d",
+    //     "lastName": "party2_lastName"
+    //   },
+    //   {
+    //     "firstName": "Testy",
+    //     "id": "12345",
+    //     "lastName": "Geezer"
+    //   }
+    // ])
+    let party = spectator.service.getPartyById('12345');
+    expect(party.firstName === 'Testy')
+    expect(party.lastName === 'Geezer')
+    expect(party.id === '12345')
   })
 
   it('it should update an party using an ID and an attribute', () => {

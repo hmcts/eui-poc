@@ -4,6 +4,7 @@ import { HttpClient, HttpErrorResponse } from "@angular/common/http";
 import { environment } from "../../../../../apps/eui/src/environment/environment";
 import { BehaviorSubject, Observable, throwError } from "rxjs";
 const BASE_PATH = environment.BASE_URL
+const API_PATH = environment.API_URL
 
 @Injectable({
   providedIn: "root",
@@ -14,15 +15,18 @@ export class PartyService {
 
 
   }
-  partiesURL = `${BASE_PATH} /party`
+  //partiesURL = `${BASE_PATH}${API_PATH}/party`
+  partiesURL = `http://localhost:4200/microsite/nfdiv/api/party`
   getParties() {
+    this.parties$.next([]);
     this.http.get(this.partiesURL).subscribe( (res)=> {
       this.parties$.next(<Party[]>res)
     })
   }
 
-  getPartyById(id: string): Observable<Party> {
-    return this.http.get<Party>(`${this.partiesURL}/id/${id}`);
+  getPartyById(id: string): Party{
+    let ind = this.parties$.value.findIndex((x) => x.id === id);
+    return this.parties$.value[ind];
   }
 
   addParty(item: Party): Observable<Party[]> {

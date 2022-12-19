@@ -6,6 +6,7 @@
     "ng": "nx",
     "postinstall": "node ./decorate-angular-cli.js",
     "start": "nx serve",
+    "start:dev": "nx serve --proxy-config proxy.conf.json",
     "startAll": " run ./apps/gradlew withBoot",
     "build": "nx build",
     "test": "nx test",

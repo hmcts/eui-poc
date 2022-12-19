@@ -16,10 +16,14 @@
         "index": "apps/eui/src/index.html",
         "main": "apps/eui/src/main.ts",
         "baseHref": "/microsite/nfdiv/",
-        "deployUrl": "/microsite/nfdiv/",
         "polyfills": [
           "zone.js"
         ],
+        "stylePreprocessorOptions": {
+        "includePaths": [
+          "node_modules"
+        ]
+      },
         "tsConfig": "apps/eui/tsconfig.app.json",
         "inlineStyleLanguage": "scss",
         "assets": [
@@ -71,7 +75,7 @@
       },
       "defaultConfiguration": "development",
       "options": {
-        "proxyConfig": "apps/eui/proxy.conf.json"
+        "proxyConfig": "apps/eui/src/proxy.conf.json"
       }
     },
     "extract-i18n": {

@@ -1,8 +1,11 @@
 describe('Testing the Multi Party page', () => {
+  let baseUrl = Cypress.env('baseUrl');
+  let apiUrl = Cypress.env('localApi');
   beforeEach( ()=> {
     cy.viewport(1920,1024);
-    cy.visit('http://localhost:4200/microsite/nfdiv/case-details/1669996761194595/trigger/update-parties')
-
+    cy.visit(`${baseUrl}/microsite/nfdiv/case-details/1669996761194595/trigger/update-parties`)
+    // cy.intercept(`${apiURL}/party`)
+    cy.intercept('GET', `http://localhost:3333/party`, {fixture: 'getParties.json'}).as('parties')
   })
   it('The header should be visible', () => {
     cy.get('.govuk-header__logotype-text').should('be.visible');
