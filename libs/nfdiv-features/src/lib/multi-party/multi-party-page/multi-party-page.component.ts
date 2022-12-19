@@ -7,7 +7,7 @@ import { Observable, Subscription } from "rxjs";
 import { CaseIdPipe } from "../../case-id/case-id.pipe";
 import { FormsModule } from "@angular/forms";
 import { MatListModule, MatSelectionList, MatSelectionListChange } from "@angular/material/list";
-import { MatIcon, MatIconModule } from "@angular/material/icon";
+import {  MatIconModule } from "@angular/material/icon";
 import { MatButtonModule } from "@angular/material/button";
 import { v4 as uuidv4 } from 'uuid';
 import { Party } from "@hmcts-data";
@@ -128,6 +128,7 @@ export class MultiPartyPageComponent implements OnInit, OnDestroy {
     this.firstName  =''
     this.lastName  =''
     this.partiesList?.deselectAll();
+    this.editMode = false;
   }
 }
 

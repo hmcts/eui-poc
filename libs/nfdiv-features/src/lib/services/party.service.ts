@@ -1,38 +1,47 @@
 import { Injectable } from "@angular/core";
 import { Party } from "@hmcts-data";
-import { v4 as uuidv4 } from "uuid";
 import { HttpClient, HttpErrorResponse } from "@angular/common/http";
 import { environment } from "../../../../../apps/eui/src/environment/environment";
-import { catchError, Observable, throwError } from "rxjs";
+import { BehaviorSubject, Observable, throwError } from "rxjs";
 const BASE_PATH = environment.BASE_URL
 
 @Injectable({
   providedIn: "root",
 })
 export class PartyService {
-
-
+  parties$ = new BehaviorSubject<Party[]>([]);
   constructor(private http:HttpClient ) {
+
 
   }
   partiesURL = `${BASE_PATH} /party`
-  parties$ = this.http.get(this.partiesURL)
+  getParties() {
+    this.http.get(this.partiesURL).subscribe( (res)=> {
+      this.parties$.next(<Party[]>res)
+    })
+  }
 
   getPartyById(id: string): Observable<Party> {
     return this.http.get<Party>(`${this.partiesURL}/id/${id}`);
   }
 
-  addParty(item: Party): Observable<Party> {
-    return this.http.post<Party>( this.partiesURL, item)
+  addParty(item: Party): Observable<Party[]> {
+    this.http.post<Party>( this.partiesURL, item).subscribe(
+      res => {this.parties$.value.push(res)}
+    )
+    return this.parties$ as Observable<Party[]>
   }
-  updateParty(item: Party) {
-    return this.http.put<Party>(this.partiesURL, item)
+  updateParty(id: string, item: Partial<Party>) {
+    return this.http.patch<Party>(`${this.partiesURL}/id/${id}`, item)
       // .pipe(
       //   catchError(this.handleError('updateParty', item))
       // );
   }
   deleteParty(id: string) {
-    return this.http.delete<Party>(`${this.partiesURL}/id/${id}`)
+    return this.http.delete<Party>(`${this.partiesURL}/id/${id}`).subscribe( (y) => {
+      let ind = this.parties$.value.findIndex((x) => x.id === y.id);
+      this.parties$.value.splice(ind,1);
+    })
       // .pipe(
       //   catchError(this.handleError('updateParty', id))
       // );

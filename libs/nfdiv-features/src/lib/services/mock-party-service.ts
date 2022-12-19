@@ -1,6 +1,5 @@
 import { Injectable } from "@angular/core";
 import { Party } from "@hmcts-data";
-import { v4 as uuidv4 } from "uuid";
 import { BehaviorSubject } from "rxjs";
 
 @Injectable({
@@ -18,7 +17,9 @@ export class MockPartyService {
     return this.parties$.value[ind];
   }
   addParty(item: Party) {
+    item.id = '12345'
     this.parties$.value.push(item);
+    return item;
   }
   updateParty(item: Party) {
     let ind = this.parties$.value.findIndex((x) => x.id === item.id);
@@ -37,7 +38,7 @@ export class MockPartyService {
         id: "2d532789-32d5-49fa-a030-a72634b6196d",
         firstName: "party1_firstName",
         lastName: "party1_lastName"
-       } as Party),
+       } as Party);
       retValue.push({
         id: "2d532789-32d5-49fa-a030-a72634b6196d",
         firstName: "party2_firstName",

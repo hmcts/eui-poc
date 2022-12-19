@@ -1,5 +1,5 @@
 import { createServiceFactory, SpectatorService } from '@ngneat/spectator/jest';
-import { MockPartyService } from './mock-party-service';
+import { MockPartyService } from "@nfdiv/features";
 
 describe('MockPartyService', () => {
   let spectator: SpectatorService<MockPartyService>;
@@ -18,7 +18,7 @@ describe('MockPartyService', () => {
     expect(parties.length).toEqual(2);
   })
   it ('should have 3  entries after add', () => {
-    spectator.service.addParty({id: '12345', firstName: 'Testy', lastName: 'geezer'})
+    spectator.service.addParty({id: '', firstName: 'Testy', lastName: 'geezer'})
     let parties = spectator.service.parties$.value;
     expect(parties.length).toEqual(3);
     expect(parties[2].id).toEqual('12345')
