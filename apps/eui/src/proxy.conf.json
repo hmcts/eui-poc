@@ -1,5 +1,5 @@
 {
-  "/microsite/nfdiv/api": {
+  "/microsite/nfdiv/api/": {
     "target": "http://localhost:3333",
     "secure": false,
     "loglevel": "debug"

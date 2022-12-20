@@ -77,6 +77,7 @@
     "@nrwl/node": "15.3.3",
     "@nrwl/workspace": "15.3.3",
     "@types/cookie-parser": "^1.4.3",
+    "@types/express": "^4.17.15",
     "@types/jest": "29.2.3",
     "@types/node": "18.7.1",
     "@types/uuid": "^9.0.0",
