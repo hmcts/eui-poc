@@ -2,7 +2,6 @@ import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/commo
 import { PartyService } from './party.service';
 import { CreatePartyDto } from './dto/create-party.dto';
 import { UpdatePartyDto } from './dto/update-party.dto';
-import { Party } from "@hmcts-data";
 
 @Controller('party')
 export class PartyController {
@@ -14,7 +13,6 @@ export class PartyController {
     if (createPartyDto === undefined) {
       createPartyDto = new CreatePartyDto()
     }
-    createPartyDto.id = body.item.id;
     createPartyDto.connectedCases = body.caseId;
     createPartyDto.firstName = body.item.firstName
     createPartyDto.lastName = body.item.lastName
