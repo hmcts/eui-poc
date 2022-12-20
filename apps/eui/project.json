@@ -65,6 +65,9 @@
     },
     "serve": {
       "executor": "@angular-devkit/build-angular:dev-server",
+      "options": {
+        "proxyConfig": "apps/eui/src/proxy.conf.json"
+      },
       "configurations": {
         "production": {
           "browserTarget": "eui:build:production"
@@ -73,10 +76,7 @@
           "browserTarget": "eui:build:development"
         }
       },
-      "defaultConfiguration": "development",
-      "options": {
-        "proxyConfig": "apps/eui/src/proxy.conf.json"
-      }
+      "defaultConfiguration": "development"
     },
     "extract-i18n": {
       "executor": "@angular-devkit/build-angular:extract-i18n",

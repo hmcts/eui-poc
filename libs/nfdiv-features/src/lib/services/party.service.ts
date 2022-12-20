@@ -15,7 +15,7 @@ export class PartyService {
 
 
   }
-  partiesURL = `${BASE_PATH}${API_PATH}/party`
+   partiesURL = `${BASE_PATH}${API_PATH}/party`
   //partiesURL = `http://localhost:4200/microsite/nfdiv/api/party`
   getParties(caseId: string) {
     let url = `${this.partiesURL}?caseId=${caseId}`
