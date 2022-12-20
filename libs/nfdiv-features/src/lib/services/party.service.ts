@@ -30,8 +30,8 @@ export class PartyService {
     return this.parties$.value[ind];
   }
 
-  addParty(item: Party): Observable<Party[]> {
-    this.http.post<Party>( this.partiesURL, item).subscribe(
+  addParty(caseId: string, item: Party): Observable<Party[]> {
+    this.http.post<Party>( this.partiesURL, {caseId, item}).subscribe(
       res => {this.parties$.value.push(res)}
     )
     return this.parties$ as Observable<Party[]>

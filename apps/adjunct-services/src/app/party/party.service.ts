@@ -5,6 +5,7 @@ import { UpdatePartyDto } from './dto/update-party.dto';
 @Injectable()
 export class PartyService {
   create(createPartyDto: CreatePartyDto) {
+    //TODO add TypeORM to add item to database
     return 'This action adds a new party';
   }
 

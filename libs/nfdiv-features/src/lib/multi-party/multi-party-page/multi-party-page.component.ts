@@ -69,14 +69,14 @@ export class MultiPartyPageComponent implements OnInit, OnDestroy {
     this.clearListSelection();
   }
 
-  addParty() {
+  addParty(item: Party) {
     if (this.firstName.length && this.lastName.length) {
       let party = {
-        id: uuidv4(),
+        id: '',
         firstName: this.firstName,
-        lastName: this.lastName,
+        lastName: this.lastName
       } as Party;
-      this.partyService.addParty(party);
+      this.partyService.addParty(this.caseId, party);
       this.firstName = "";
       this.lastName = "";
       this.addMode = false;
@@ -132,7 +132,7 @@ export class MultiPartyPageComponent implements OnInit, OnDestroy {
     let newItem = {
       id: "this.getSelectedItem().id",
       firstName: this.firstName,
-      lastName: this.lastName,
+      lastName: this.lastName
     } as Party;
     this.partyService.updateParty(newItem.id, newItem);
     this.partiesList?.deselectAll();

@@ -9,7 +9,12 @@ export class PartyController {
   constructor(private readonly partyService: PartyService) {}
 
   @Post()
-  create(@Body() createPartyDto: CreatePartyDto) {
+  create(@Body() body, createPartyDto: CreatePartyDto) {
+    console.log(body)
+    createPartyDto.id = body.id;
+    createPartyDto.caseId = body.caseId;
+    createPartyDto.firstName = body.firstName
+    createPartyDto.lastName = body.lastName
     return this.partyService.create(createPartyDto);
   }
 
