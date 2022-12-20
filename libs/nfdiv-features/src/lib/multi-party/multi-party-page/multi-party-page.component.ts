@@ -53,10 +53,10 @@ export class MultiPartyPageComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.parties$ = this.partyService.parties$;
-    this.partyService.getParties();
     this.dataSubscription = this.route.data.subscribe((data) => {
       this.caseId = data["caseId"];
       this.caseTrigger = data["triggerType"];
+      this.partyService.getParties(this.caseId);
     });
   }
 

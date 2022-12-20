@@ -4,4 +4,3 @@ export * from "./lib/lib.routes";
 export * from "./lib/appointment-calender-page/appointment-calender-page.component";
 export * from "./lib/appointment-calender-list/appointment-calender-list.component";
 export * from "./lib/services/party.service"
-export * from "./lib/services/mock-party-service"

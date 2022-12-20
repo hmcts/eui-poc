@@ -15,11 +15,12 @@ export class PartyService {
 
 
   }
-  //partiesURL = `${BASE_PATH}${API_PATH}/party`
-  partiesURL = `http://localhost:4200/microsite/nfdiv/api/party`
-  getParties() {
+  partiesURL = `${BASE_PATH}${API_PATH}/party`
+  //partiesURL = `http://localhost:4200/microsite/nfdiv/api/party`
+  getParties(caseId: string) {
+    let url = `${this.partiesURL}?caseId=${caseId}`
     this.parties$.next([]);
-    this.http.get(this.partiesURL).subscribe( (res)=> {
+    this.http.get(url).subscribe( (res)=> {
       this.parties$.next(<Party[]>res)
     })
   }
