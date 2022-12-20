@@ -72,7 +72,7 @@ export class MultiPartyPageComponent implements OnInit, OnDestroy {
   addParty(item: Party) {
     if (this.firstName.length && this.lastName.length) {
       let party = {
-        id: '',
+        id: 0,
         firstName: this.firstName,
         lastName: this.lastName
       } as Party;
@@ -116,12 +116,12 @@ export class MultiPartyPageComponent implements OnInit, OnDestroy {
     return this.partiesList?.selectedOptions.selected[0].value;
   }
 
-  private deleteSelectedItem(selectedID: string) {
+  private deleteSelectedItem(selectedID: number) {
     this.partyService.deleteParty(selectedID);
     this.partiesList?.deselectAll();
   }
 
-  private editSelectedItem(selectedID: string) {
+  private editSelectedItem(selectedID: number) {
     const itemToEdit = this.partyService.getPartyById(selectedID);
     this.firstName = itemToEdit.firstName;
     this.lastName = itemToEdit.lastName;
@@ -130,7 +130,7 @@ export class MultiPartyPageComponent implements OnInit, OnDestroy {
 
   submitEdit() {
     let newItem = {
-      id: "this.getSelectedItem().id",
+      id: 0,
       firstName: this.firstName,
       lastName: this.lastName
     } as Party;

@@ -25,7 +25,7 @@ export class PartyService {
     })
   }
 
-  getPartyById(id: string): Party{
+  getPartyById(id: number): Party{
     let ind = this.parties$.value.findIndex((x) => x.id === id);
     return this.parties$.value[ind];
   }
@@ -36,13 +36,13 @@ export class PartyService {
     )
     return this.parties$ as Observable<Party[]>
   }
-  updateParty(id: string, item: Partial<Party>) {
+  updateParty(id: number, item: Partial<Party>) {
     return this.http.patch<Party>(`${this.partiesURL}/id/${id}`, item)
       // .pipe(
       //   catchError(this.handleError('updateParty', item))
       // );
   }
-  deleteParty(id: string) {
+  deleteParty(id: number) {
     return this.http.delete<Party>(`${this.partiesURL}/id/${id}`).subscribe( (y) => {
       let ind = this.parties$.value.findIndex((x) => x.id === y.id);
       this.parties$.value.splice(ind,1);

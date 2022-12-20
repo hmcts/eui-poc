@@ -15,10 +15,10 @@ import { Appointment } from "./appointment/appointment/entities/appointment.enti
 import { AppointmentController } from "./appointment/appointment/appointment.controller";
 import { AppointmentService } from "./appointment/appointment/appointment.service";
 import { CaseModule } from "./case/case.module";
-import { Party } from "./party/entities/party.entity";
 import { PartyModule } from "./party/party.module";
 import { PartyController } from "./party/party.controller";
 import { PartyService } from "./party/party.service";
+import { Party } from "./party/entities/party.entity";
 
 @Module({
   imports: [
@@ -35,7 +35,7 @@ import { PartyService } from "./party/party.service";
     AppointmentModule,
     CaseModule,
   ],
-  controllers: [AppController, CaseworkerController, AppointmentController, PartyController],
-  providers: [AppService, PartyService],
+  controllers: [AppController, CaseworkerController, AppointmentController],
+  providers: [AppService],
 })
 export class AppModule {}

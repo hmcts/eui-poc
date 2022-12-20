@@ -1,6 +1,6 @@
 export class CreatePartyDto {
-  caseId: string
-  id:string
-  firstName:string
-  lastName: string
+  id: number;
+  firstName: string;
+  lastName: string;
+  connectedCases: string;
 }

@@ -9,21 +9,28 @@ export class PartyController {
   constructor(private readonly partyService: PartyService) {}
 
   @Post()
-  create(@Body() body, createPartyDto: CreatePartyDto) {
+  async create(@Body() body, createPartyDto: CreatePartyDto) {
     console.log(body)
-    createPartyDto.id = body.id;
-    createPartyDto.caseId = body.caseId;
-    createPartyDto.firstName = body.firstName
-    createPartyDto.lastName = body.lastName
-    return this.partyService.create(createPartyDto);
+    if (createPartyDto === undefined) {
+      createPartyDto = new CreatePartyDto()
+    }
+    createPartyDto.id = body.item.id;
+    createPartyDto.connectedCases = body.caseId;
+    createPartyDto.firstName = body.item.firstName
+    createPartyDto.lastName = body.item.lastName
+    let reponse = await this.partyService.create(createPartyDto);
+    return reponse
   }
 
   @Get()
   findAll() {
-    // return this.partyService.findAll();
-    return this.createDummyData();
+    return this.partyService.findAll();
   }
 
+  @Get(':caseId')
+  findMany(@Param('caseId') id: string) {
+    return this.partyService.findAllByCaseId(id);
+  }
   @Get(':id')
   findOne(@Param('id') id: string) {
     return this.partyService.findOne(+id);
@@ -37,21 +44,5 @@ export class PartyController {
   @Delete(':id')
   remove(@Param('id') id: string) {
     return this.partyService.remove(+id);
-  }
-
-  private createDummyData(): Party[] {
-    let retValue = new Array<Party>();
-    retValue.push(
-      {
-        id: "2d532789-32d5-49fa-a030-a72634b6196d",
-        firstName: "party1_firstName",
-        lastName: "party1_lastName"
-      } as Party);
-    retValue.push({
-      id: "2d532789-32d5-49fa-a030-a72634b6196d",
-      firstName: "party2_firstName",
-      lastName: "party2_lastName",
-    } as Party);
-    return retValue;
   }
 }

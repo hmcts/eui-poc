@@ -1,16 +1,25 @@
 import { Injectable } from '@nestjs/common';
 import { CreatePartyDto } from './dto/create-party.dto';
 import { UpdatePartyDto } from './dto/update-party.dto';
+import { InjectRepository } from "@nestjs/typeorm";
+import { Party } from "./entities/party.entity";
+import { Repository } from "typeorm";
 
 @Injectable()
 export class PartyService {
+
+  constructor(@InjectRepository(Party) private readonly party:Repository<Party>) {
+  }
   create(createPartyDto: CreatePartyDto) {
-    //TODO add TypeORM to add item to database
-    return 'This action adds a new party';
+     return this.party.save(createPartyDto)
   }
 
   findAll() {
-    return `This action returns all party`;
+    return this.party.find();
+  }
+
+  findAllByCaseId(caseID) {
+    return this.party.find({where: { connectedCases: caseID},});
   }
 
   findOne(id: number) {
