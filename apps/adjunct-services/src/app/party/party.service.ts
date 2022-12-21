@@ -31,6 +31,6 @@ export class PartyService {
   }
 
   remove(id: number) {
-    return `This action removes a #${id} party`;
+    return this.party.delete(id);
   }
 }

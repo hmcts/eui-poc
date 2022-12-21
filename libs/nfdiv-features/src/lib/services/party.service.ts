@@ -43,7 +43,7 @@ export class PartyService {
       // );
   }
   deleteParty(id: number) {
-    return this.http.delete<Party>(`${this.partiesURL}/id/${id}`).subscribe( (y) => {
+    return this.http.delete<Party>(`${this.partiesURL}/${id}`).subscribe( (y) => {
       let ind = this.parties$.value.findIndex((x) => x.id === y.id);
       this.parties$.value.splice(ind,1);
     })
