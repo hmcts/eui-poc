@@ -12,24 +12,29 @@
       ],
       "options": {
         "outputPath": "dist/apps/",
-        "resourcesOutputPath": "/",
         "index": "apps/eui/src/index.html",
         "main": "apps/eui/src/main.ts",
         "baseHref": "/microsite/nfdiv/",
+        "deployUrl": "/microsite/nfdiv/",
         "polyfills": [
           "zone.js"
         ],
-        "stylePreprocessorOptions": {
-        "includePaths": [
-          "node_modules"
-        ]
-      },
         "tsConfig": "apps/eui/tsconfig.app.json",
         "inlineStyleLanguage": "scss",
         "assets": [
-          "apps/eui/src/favicon.ico",
-          "apps/eui/src/assets/*"
+          "./apps/eui/src/favicon.ico",
+          "./apps/eui/src/assets/**/*.*",
+          {
+            "glob":"**/*",
+            "input":"src/assets/",
+            "output":"/assets/"
+          }
         ],
+        "stylePreprocessorOptions": {
+          "includePaths": [
+            "node_modules"
+          ]
+        },
         "styles": [
           "apps/eui/src/styles.scss",
           "apps/eui/src/custom-theme.scss"
