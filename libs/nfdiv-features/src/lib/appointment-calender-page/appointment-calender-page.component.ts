@@ -120,7 +120,6 @@ export class AppointmentCalenderPageComponent implements OnInit, OnDestroy {
   }
 
   validateSelection($event: any) {
-    console.log("got a value", $event);
     this.service.setAppointment($event as AppointmentsModel);
     this.continue = $event != undefined;
   }

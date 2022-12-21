@@ -13,7 +13,6 @@ import {
 } from "@angular/material/list";
 import { MatIconModule } from "@angular/material/icon";
 import { MatButtonModule } from "@angular/material/button";
-import { v4 as uuidv4 } from "uuid";
 import { Party } from "@hmcts-data";
 import { PartyService } from "@nfdiv/features";
 
@@ -129,13 +128,18 @@ export class MultiPartyPageComponent implements OnInit, OnDestroy {
   }
 
   submitEdit() {
-    let newItem = {
-      id: 0,
-      firstName: this.firstName,
-      lastName: this.lastName
-    } as Party;
-    this.partyService.updateParty(newItem.id, newItem);
-    this.partiesList?.deselectAll();
+    let selectedId = this.partiesList?.selectedOptions.selected[0].value.id
+    if (selectedId) {
+      let newItem = {
+        id: selectedId,
+        firstName: this.firstName,
+        lastName: this.lastName,
+        connectedCases: this.caseId
+      } as Party;
+      this.partyService.updateParty(selectedId, newItem);
+      this.partiesList?.deselectAll();
+      this.editMode = false;
+    }
   }
 
   cancelEdit() {

@@ -17,7 +17,6 @@ export class PartyController {
 
   @Get()
   findAll(@Param('caseId') id: string) {
-    console.log("Call to find All");
     if (id) {
       return this.partyService.findAllByCaseId(id);
     } else {
@@ -26,7 +25,6 @@ export class PartyController {
   }
   @Get('/byCaseId:caseId')
   findMany(@Param('caseId') id: string) {
-    console.log("Call to find Many");
     return this.partyService.findAllByCaseId(id);
   }
   @Get('?id')
@@ -41,12 +39,18 @@ export class PartyController {
     createPartyDto.connectedCases = body.caseId;
     createPartyDto.firstName = body.item.firstName;
     createPartyDto.lastName = body.item.lastName;
-    let reponse = await this.partyService.create(createPartyDto);
-    return reponse;
+    return await this.partyService.create(createPartyDto);
   }
 
   @Patch(':id')
-  update(@Param('id') id: string, @Body() updatePartyDto: UpdatePartyDto) {
+  update(@Param('id') id: string, @Body() body, updatePartyDto: UpdatePartyDto) {
+    if (updatePartyDto === undefined) {
+      updatePartyDto = new CreatePartyDto();
+    }
+    updatePartyDto.id = body.id;
+    updatePartyDto.connectedCases = body.connectedCases;
+    updatePartyDto.firstName = body.firstName;
+    updatePartyDto.lastName = body.lastName;
     return this.partyService.update(+id, updatePartyDto);
   }
 

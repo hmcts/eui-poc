@@ -37,7 +37,10 @@ export class PartyService {
     return this.parties$ as Observable<Party[]>
   }
   updateParty(id: number, item: Partial<Party>) {
-    return this.http.patch<Party>(`${this.partiesURL}/id/${id}`, item)
+    return this.http.patch<Party>(`${this.partiesURL}/${id}`, item).subscribe( (response) => {
+      let ind = this.parties$.value.findIndex((x) => x.id === response.id);
+      this.parties$.value[ind] = response;
+    })
       // .pipe(
       //   catchError(this.handleError('updateParty', item))
       // );

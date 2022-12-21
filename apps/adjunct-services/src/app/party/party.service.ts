@@ -26,8 +26,11 @@ export class PartyService {
     return `This action returns a #${id} party`;
   }
 
-  update(id: number, updatePartyDto: UpdatePartyDto) {
-    return `This action updates a #${id} party`;
+  async update(id: number, updatePartyDto: UpdatePartyDto) {
+    let changed = await this.party.update(id,updatePartyDto)
+    if (changed.affected > 0) {
+      return this.party.findOne({where: { id: id},})
+    }
   }
 
   remove(id: number) {

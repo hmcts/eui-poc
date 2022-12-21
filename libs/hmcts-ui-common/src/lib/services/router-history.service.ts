@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
-import { Router, NavigationStart, NavigationEnd, RouterEvent } from "@angular/router";
+import { Router, NavigationStart, NavigationEnd} from "@angular/router";
 import { filter, scan } from 'rxjs/operators';
-import { RouterHistory } from '../../../../hmcts-models/router-history';
+import { RouterHistory } from "@hmcts-data";
 
 @Injectable({
   providedIn: 'root'
@@ -12,7 +12,6 @@ export class RouterHistoryService {
   currentUrl$ = new BehaviorSubject<string| null>(null);
 
   constructor(router: Router) {
-    console.log('RouteHistoryService :: constructor')
     router.events
       .pipe(
         // only include NavigationStart and NavigationEnd events
