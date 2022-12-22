@@ -16,11 +16,13 @@ import { AppRoutingModule } from "./app-routing.module";
 import { PhaseBannerComponent } from "../../../../libs/hmcts-ui-common/src/lib/phase-banner/phase-banner.component";
 import { APP_BASE_HREF } from "@angular/common";
 import { CaseResolver } from "../../../../libs/nfdiv-features/src/lib/case-resolver.service";
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 
 @NgModule({
   declarations: [AppComponent],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     CommonHeaderComponent,
     CommonFooterComponent,
     NfdivFeaturesModule,

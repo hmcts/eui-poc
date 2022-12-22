@@ -15,6 +15,7 @@ import { MatIconModule } from "@angular/material/icon";
 import { MatButtonModule } from "@angular/material/button";
 import { Party } from "@hmcts-data";
 import { PartyService } from "@nfdiv/features";
+import { SearchbarComponent } from "../../searchbar/searchbar.component";
 
 @Component({
   selector: "eui-multi-party-page",
@@ -26,6 +27,7 @@ import { PartyService } from "@nfdiv/features";
     MatListModule,
     MatButtonModule,
     MatIconModule,
+    SearchbarComponent
   ],
   templateUrl: "./multi-party-page.component.html",
   styleUrls: ["./multi-party-page.component.scss"],
@@ -147,5 +149,9 @@ export class MultiPartyPageComponent implements OnInit, OnDestroy {
     this.lastName = "";
     this.partiesList?.deselectAll();
     this.editMode = false;
+  }
+
+  filterParties(newVal: string) {
+      this.partyService.filter = newVal;
   }
 }

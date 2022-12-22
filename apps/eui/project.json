@@ -12,27 +12,26 @@
       ],
       "options": {
         "outputPath": "dist/apps/",
+        "resourcesOutputPath": "/assets",
         "index": "apps/eui/src/index.html",
         "main": "apps/eui/src/main.ts",
-        "baseHref": "/microsite/nfdiv/",
-        "deployUrl": "/microsite/nfdiv/",
         "polyfills": [
           "zone.js"
         ],
         "tsConfig": "apps/eui/tsconfig.app.json",
         "inlineStyleLanguage": "scss",
         "assets": [
-          "./apps/eui/src/favicon.ico",
-          "./apps/eui/src/assets/**/*.*",
+          "apps/eui/src/favicon.ico",
+          "apps/eui/src/assets/",
           {
-            "glob":"**/*",
-            "input":"src/assets/",
-            "output":"/assets/"
+            "input": "node_modules/govuk_frontend/govuk/assets/",
+            "glob": "**/*",
+            "output": "assets"
           }
         ],
         "stylePreprocessorOptions": {
           "includePaths": [
-            "node_modules"
+            "../../node_modules/govuk_frontend/govuk/assets/"
           ]
         },
         "styles": [
@@ -70,9 +69,6 @@
     },
     "serve": {
       "executor": "@angular-devkit/build-angular:dev-server",
-      "options": {
-        "proxyConfig": "apps/eui/src/proxy.conf.json"
-      },
       "configurations": {
         "production": {
           "browserTarget": "eui:build:production"
@@ -81,7 +77,10 @@
           "browserTarget": "eui:build:development"
         }
       },
-      "defaultConfiguration": "development"
+      "defaultConfiguration": "development",
+      "options": {
+        "proxyConfig": "apps/eui/src/proxy.conf.json"
+      }
     },
     "extract-i18n": {
       "executor": "@angular-devkit/build-angular:extract-i18n",

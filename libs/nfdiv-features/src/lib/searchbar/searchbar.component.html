@@ -1,0 +1,7 @@
+<mat-form-field class="search-form-field">
+  <mat-label>Filter Parties</mat-label>
+  <input matInput #searchInput type="search" [(ngModel)]="value" #searchControl="ngModel">
+  <button *ngIf="value" matSuffix mat-icon-button aria-label="Clear" (click)="clearField()">
+    <mat-icon>close</mat-icon>
+  </button>
+</mat-form-field>
