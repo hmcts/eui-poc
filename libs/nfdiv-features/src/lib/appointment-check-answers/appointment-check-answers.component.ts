@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import {AppointmentCalendarPageService} from "../appointment-calender-page/appointment-calendar-page.service";
 import {HttpClient} from "@angular/common/http";
 import {ActivatedRoute} from "@angular/router";
-import { WindowService } from "../../../../hmcts-ui-common/src/lib/services/window.service";
+import { WindowService } from "@hmcts-common";
 
 
 //TODO -- Populate with dynamic data
@@ -26,10 +26,7 @@ export class AppointmentCheckAnswersComponent {
 
   async onSubmit(): Promise<void> {
     const d = this.service.getAppointment()?.timeslot;
-
-    // console.error(this.service.getAppointment())
     let data = {
-      // appointmentDate: "2019-01-01T12:12:12.000"
       appointmentDate: this.service.getAppointment()?.timeslot
     };
     let cid = this.route.snapshot.paramMap.get("cid");

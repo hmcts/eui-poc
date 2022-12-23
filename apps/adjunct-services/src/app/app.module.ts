@@ -15,16 +15,21 @@ import { Appointment } from "./appointment/appointment/entities/appointment.enti
 import { AppointmentController } from "./appointment/appointment/appointment.controller";
 import { AppointmentService } from "./appointment/appointment/appointment.service";
 import { CaseModule } from "./case/case.module";
+import { PartyModule } from "./party/party.module";
+import { PartyController } from "./party/party.controller";
+import { PartyService } from "./party/party.service";
+import { Party } from "./party/entities/party.entity";
 
 @Module({
   imports: [
     AppointmentModule,
     CaseworkersModule,
     CaseModule,
+    PartyModule,
     TypeOrmModule.forRoot({
       type: "sqlite",
       database: "db.sqlite",
-      entities: [Appointment, CaseWorker],
+      entities: [Appointment, CaseWorker, Party],
       synchronize: true, // Don't use in production
     }),
     AppointmentModule,

@@ -12,11 +12,9 @@
       ],
       "options": {
         "outputPath": "dist/apps/",
-        "resourcesOutputPath": "/",
+        "resourcesOutputPath": "/assets",
         "index": "apps/eui/src/index.html",
         "main": "apps/eui/src/main.ts",
-        "baseHref": "/microsite/nfdiv/",
-        "deployUrl": "/microsite/nfdiv/",
         "polyfills": [
           "zone.js"
         ],
@@ -26,6 +24,11 @@
           "apps/eui/src/favicon.ico",
           "apps/eui/src/assets/"
         ],
+        "stylePreprocessorOptions": {
+          "includePaths": [
+            "../../node_modules/govuk_frontend/govuk/assets/"
+          ]
+        },
         "styles": [
           "apps/eui/src/styles.scss",
           "apps/eui/src/custom-theme.scss"
@@ -71,7 +74,7 @@
       },
       "defaultConfiguration": "development",
       "options": {
-        "proxyConfig": "apps/eui/proxy.conf.json"
+        "proxyConfig": "apps/eui/src/proxy.conf.json"
       }
     },
     "extract-i18n": {

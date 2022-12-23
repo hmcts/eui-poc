@@ -1,4 +1,4 @@
-describe('empty spec', () => {
+describe('Testing the Appointment picker page', () => {
   beforeEach( ()=> {
     cy.viewport(1920,1024);
     cy.visit('http://localhost:4200/microsite/nfdiv/case-details/1669996761194595/trigger/update-appointment')

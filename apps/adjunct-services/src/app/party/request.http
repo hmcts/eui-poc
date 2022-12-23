@@ -1,0 +1,9 @@
+### Get all parties
+
+GET http://localhost:3333/microsite/nfdiv/api/party?caseId=1669996761194595`
+
+### Add Party
+POST http://localhost:3333/microsite/nfdiv/api/party
+Content-Type: application/json
+{"caseId":"1669996761194595","item":{"id":0,"firstName":"Mike","lastName":"Myers"}}
+

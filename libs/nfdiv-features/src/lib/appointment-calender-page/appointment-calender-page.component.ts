@@ -12,8 +12,8 @@ import { AppointmentCalendarPageService } from "./appointment-calendar-page.serv
 import { AppointmentsModel } from "../appointment.model";
 import { BehaviorSubject, Subscription } from "rxjs";
 import { CaseIdPipe } from "../case-id/case-id.pipe";
-import { RouterHistoryService } from "../../../../hmcts-ui-common/src/lib/services/router-history.service";
-import { WindowService } from "../../../../hmcts-ui-common/src/lib/services/window.service";
+import { RouterHistoryService } from "@hmcts-common";
+import { WindowService } from "@hmcts-common";
 
 @Component({
   selector: "eui-appointment-calender-page",
@@ -120,7 +120,6 @@ export class AppointmentCalenderPageComponent implements OnInit, OnDestroy {
   }
 
   validateSelection($event: any) {
-    console.log("got a value", $event);
     this.service.setAppointment($event as AppointmentsModel);
     this.continue = $event != undefined;
   }
