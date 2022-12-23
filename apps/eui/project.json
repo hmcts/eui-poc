@@ -22,7 +22,11 @@
         "inlineStyleLanguage": "scss",
         "assets": [
           "apps/eui/src/favicon.ico",
-          "apps/eui/src/assets/"
+          {
+            "glob": "**/*",
+            "input": "node_modules/govuk-frontend/govuk/assets/",
+            "output": "/assets"
+          }
         ],
         "stylePreprocessorOptions": {
           "includePaths": [
