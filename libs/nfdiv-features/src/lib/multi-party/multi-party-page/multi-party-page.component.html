@@ -5,7 +5,7 @@
     </h4>
     <span class="button-row">
       <div>
-        <eui-searchbar [debounceRate]="500" (searchOutput)="filterParties($event)"></eui-searchbar>
+        <eui-searchbar class="search-bar"  [debounceRate]="500" (searchOutput)="filterParties($event)"></eui-searchbar>
       </div>
       <div *ngIf="editIcons" class="button-row">
         <button mat-mini-fab class="button-icons" (click)="editItem($event)">
