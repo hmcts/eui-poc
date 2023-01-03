@@ -10,4 +10,10 @@ export class Appointment {
   timeslot: Date;
   @Column()
   booked: boolean;
+
+  @Column()
+  caseId: string
+  @Column()
+  partyId: number
+
 }

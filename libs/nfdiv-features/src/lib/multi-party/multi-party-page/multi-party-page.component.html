@@ -4,9 +4,9 @@
       Parties to Case ID {{ caseId | caseId }}
     </h4>
     <span class="button-row">
-      <div>
+       <mat-slide-toggle class="search-bar__toggle" (change)="setCaseSensitive($event)">Case sensitive</mat-slide-toggle>
         <eui-searchbar class="search-bar"  [debounceRate]="500" (searchOutput)="filterParties($event)"></eui-searchbar>
-      </div>
+
       <div *ngIf="editIcons" class="button-row">
         <button mat-mini-fab class="button-icons" (click)="editItem($event)">
           <mat-icon>edit</mat-icon>

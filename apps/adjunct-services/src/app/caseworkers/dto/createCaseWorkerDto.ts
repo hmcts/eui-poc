@@ -1,6 +1,7 @@
 import { IsEmail, IsString } from "class-validator";
 
-export class CreatCaseWorkerDto {
+export class CreateCaseWorkerDto {
+  id: number;
   @IsString()
   firstName: string;
   @IsString()

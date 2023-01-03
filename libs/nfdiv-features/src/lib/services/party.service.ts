@@ -10,6 +10,15 @@ const API_PATH = environment.API_URL;
   providedIn: "root",
 })
 export class PartyService {
+
+  private _caseSensitive = false;
+  get caseSensitive(): boolean {
+    return this._caseSensitive;
+  }
+
+  set caseSensitive(value: boolean) {
+    this._caseSensitive = value;
+  }
   get parties$(): BehaviorSubject<Party[]> {
     return this._parties$;
   }
@@ -26,6 +35,8 @@ export class PartyService {
       this.parties$.next(this.unfilteredList);
     }
   }
+
+
   private _parties$ = new BehaviorSubject<Party[]>([]);
 
   private unfilteredList: Party[] = []
@@ -40,7 +51,7 @@ export class PartyService {
       this.unfilteredList = res as Party[];
       if (this.filter != undefined && this.filter.length && res) {
         let incoming = res as Party[];
-        let filteredList = this.filtered(incoming);
+        let filteredList = this.filtered(incoming, this.caseSensitive);
         this._parties$.next(filteredList);
       } else {
         this._parties$.next(<Party[]>res);
@@ -48,14 +59,22 @@ export class PartyService {
     });
   }
 
-  private filtered( incoming: Party[]) {
-
-    return incoming.filter((x) => {
-      return (
-        x.firstName.includes(<string>this.filter) ||
-        x.lastName.includes(<string>this.filter)
-      );
-    });
+  private filtered( incoming: Party[], caseSensitive?: boolean) {
+    if (caseSensitive) {
+      return incoming.filter((x) => {
+        return (
+          x.firstName.includes(<string>this.filter) ||
+          x.lastName.includes(<string>this.filter)
+        );
+      });
+    }else {
+      return incoming.filter((x) => {
+        return (
+          x.firstName.toLowerCase().includes(<string>this.filter?.toLowerCase()) ||
+          x.lastName.toLowerCase().includes(<string>this.filter?.toLowerCase())
+        );
+      });
+    }
   }
 
   getPartyById(id: number): Party {

@@ -16,6 +16,10 @@ import { MatButtonModule } from "@angular/material/button";
 import { Party } from "@hmcts-data";
 import { PartyService } from "@nfdiv/features";
 import { SearchbarComponent } from "../../searchbar/searchbar.component";
+import {
+  MatSlideToggleChange,
+  MatSlideToggleModule,
+} from "@angular/material/slide-toggle";
 
 @Component({
   selector: "eui-multi-party-page",
@@ -27,7 +31,8 @@ import { SearchbarComponent } from "../../searchbar/searchbar.component";
     MatListModule,
     MatButtonModule,
     MatIconModule,
-    SearchbarComponent
+    SearchbarComponent,
+    MatSlideToggleModule,
   ],
   templateUrl: "./multi-party-page.component.html",
   styleUrls: ["./multi-party-page.component.scss"],
@@ -75,7 +80,7 @@ export class MultiPartyPageComponent implements OnInit, OnDestroy {
       let party = {
         id: 0,
         firstName: this.firstName,
-        lastName: this.lastName
+        lastName: this.lastName,
       } as Party;
       this.partyService.addParty(this.caseId, party);
       this.firstName = "";
@@ -130,13 +135,13 @@ export class MultiPartyPageComponent implements OnInit, OnDestroy {
   }
 
   submitEdit() {
-    let selectedId = this.partiesList?.selectedOptions.selected[0].value.id
+    let selectedId = this.partiesList?.selectedOptions.selected[0].value.id;
     if (selectedId) {
       let newItem = {
         id: selectedId,
         firstName: this.firstName,
         lastName: this.lastName,
-        connectedCases: this.caseId
+        connectedCases: this.caseId,
       } as Party;
       this.partyService.updateParty(selectedId, newItem);
       this.partiesList?.deselectAll();
@@ -152,6 +157,11 @@ export class MultiPartyPageComponent implements OnInit, OnDestroy {
   }
 
   filterParties(newVal: string) {
-      this.partyService.filter = newVal;
+    this.partyService.filter = newVal;
+  }
+
+  setCaseSensitive($event: MatSlideToggleChange) {
+    this.partyService.caseSensitive = $event.checked;
+    this.partyService.getParties(this.caseId);
   }
 }

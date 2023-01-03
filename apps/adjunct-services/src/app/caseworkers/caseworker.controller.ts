@@ -1,6 +1,7 @@
 import { Body, Controller, Get, Param, Post } from "@nestjs/common";
 import { CaseworkersService } from "./caseworkers.service";
-import { CaseWorker } from "./caseworker.entity";
+import { CreateCaseWorkerDto } from "./dto/createCaseWorkerDto";
+
 
 @Controller("caseworker")
 export class CaseworkerController {
@@ -17,8 +18,16 @@ export class CaseworkerController {
   }
 
   @Post()
-  create(@Body() body: CaseWorker) {
-    body.id = null;
-    return this.service.create(body);
+  async create(@Body() body, createCaseWorkerDto: CreateCaseWorkerDto) {
+    //return "created "
+    // body.id = null;
+    // return this.service.create(body);
+    if (createCaseWorkerDto === undefined) {
+      createCaseWorkerDto = new CreateCaseWorkerDto()
+    }
+    createCaseWorkerDto.firstName = body.firstName
+    createCaseWorkerDto.lastName = body.lastName
+    createCaseWorkerDto.email = body.email
+    return await this.service.create(createCaseWorkerDto);
   }
 }

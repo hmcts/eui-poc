@@ -1,3 +1,3 @@
 ### Get all appointments
 
-GET http://localhost:3333/api/appointment
+GET http://localhost:3333/microsite/nfdiv/api/appointment

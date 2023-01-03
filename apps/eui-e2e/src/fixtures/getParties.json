@@ -1,10 +1,38 @@
-[{
-  "id": "2d532789-32d5-49fa-a030-a72634b6196d",
-  "firstName": "party1_firstName",
-  "lastName": "party1_lastName"
-},
-{
-"id": "2d532789-32d5-49fa-a030-a72634b6196d",
-"firstName": "party2_firstName",
-"lastName": "party2_lastName"
-}]
+[
+  {
+    "id": 0,
+    "firstName": "Mary",
+    "lastName": "Janeway",
+    "connectedCases": "1669996761194596"
+  },
+  {
+    "id": 1,
+    "firstName": "Steve",
+    "lastName": "Buckley",
+    "connectedCases": "1669996761194595"
+  },
+  {
+    "id": 2,
+    "firstName": "Fred ",
+    "lastName": "Bloggs",
+    "connectedCases": "1669996761194595"
+  },
+  {
+    "id": 4,
+    "firstName": "Fredricka",
+    "lastName": "Astley",
+    "connectedCases": "1669996761194595"
+  },
+  {
+    "id": 5,
+    "firstName": "Mike",
+    "lastName": "Myers",
+    "connectedCases": "1669996761194595"
+  },
+  {
+    "id": 6,
+    "firstName": "Scott",
+    "lastName": "Sigfred",
+    "connectedCases": "1669996761194595"
+  }
+]

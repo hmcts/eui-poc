@@ -32,10 +32,8 @@ import { Party } from "./party/entities/party.entity";
       entities: [Appointment, CaseWorker, Party],
       synchronize: true, // Don't use in production
     }),
-    AppointmentModule,
-    CaseModule,
   ],
-  controllers: [AppController, CaseworkerController, AppointmentController],
+  controllers: [AppController],
   providers: [AppService],
 })
 export class AppModule {}
