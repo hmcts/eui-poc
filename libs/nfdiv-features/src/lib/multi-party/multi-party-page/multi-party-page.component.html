@@ -1,10 +1,10 @@
 <div class="page-wrapper">
-  <div *ngIf="caseId" class="case-id">
+  <div *ngIf="caseId" class="case-id" data-test="case-id">
     <h4 style="align-self: flex-start; display: flex">
       Parties to Case ID {{ caseId | caseId }}
     </h4>
     <span class="button-row">
-       <mat-slide-toggle class="search-bar__toggle" (change)="setCaseSensitive($event)">Case sensitive</mat-slide-toggle>
+       <mat-slide-toggle data-test="search-bar__toggle" datacolor="primary" class="search-bar__toggle" (change)="setCaseSensitive($event)">Case sensitive</mat-slide-toggle>
         <eui-searchbar class="search-bar"  [debounceRate]="500" (searchOutput)="filterParties($event)"></eui-searchbar>
 
       <div *ngIf="editIcons" class="button-row">
@@ -24,7 +24,7 @@
   <hr />
   <div *ngIf="parties$ | async as parties">
     <div *ngIf="parties.length > 0; else noData">
-      <mat-selection-list #selectionList
+      <mat-selection-list #selectionList data-test="party-list"
         [multiple]="false"
         (selectionChange)="emitSelection($event)"
         #partiesList
