@@ -41,6 +41,7 @@
     "class-validator": "^0.14.0",
     "config": "^3.3.8",
     "cookie-parser": "^1.4.6",
+    "cy2": "^4.0.0-beta.12",
     "date-fns": "^2.29.3",
     "email-validator": "^2.0.4",
     "govuk-frontend": "^4.4.0",
@@ -109,4 +110,3 @@
     ]
   }
 }
-

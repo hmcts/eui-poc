@@ -71,8 +71,8 @@
         type="text"
       />
     </div>
-    <button (click)="submitEdit()">OK</button>
-    <button (click)="cancelEdit()">Cancel</button>
+    <button data-test="edit-party-submit" (click)="submitEdit()">OK</button>
+    <button data-test="edit-party-cancel" (click)="cancelEdit()">Cancel</button>
   </div>
   <div *ngIf="addMode" class="edit-form">
     <div class="govuk-form-group">
@@ -101,6 +101,6 @@
         type="text"
       />
     </div>
-    <button (click)="addParty({id: 0,firstName, lastName})">Add party</button>
+    <button data-test="add-party-submit" (click)="addParty({id: 0,firstName, lastName})">Add party</button>
   </div>
 </div>
