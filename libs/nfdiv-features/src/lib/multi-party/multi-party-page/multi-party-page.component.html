@@ -8,15 +8,15 @@
         <eui-searchbar class="search-bar"  [debounceRate]="500" (searchOutput)="filterParties($event)"></eui-searchbar>
 
       <div *ngIf="editIcons" class="button-row">
-        <button mat-mini-fab class="button-icons" (click)="editItem($event)">
+        <button data-test="edit-button" mat-mini-fab class="button-icons" (click)="editItem($event)">
           <mat-icon>edit</mat-icon>
         </button>
 
-        <button mat-mini-fab class="button-icons" (click)="deleteItem($event)">
+        <button data-test="delete-button" mat-mini-fab class="button-icons" (click)="deleteItem($event)">
           <mat-icon>delete</mat-icon>
         </button>
       </div>
-      <button [disabled]="editMode" (click)="showAddForm()">
+      <button data-test="add-button" [disabled]="editMode" (click)="showAddForm()">
         Add a new party
       </button>
     </span>
