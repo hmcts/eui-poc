@@ -18,4 +18,5 @@ npm run testAll
 Runs all unit tests it finds in monorepo.
 Outputs a report of the run and a coverage report.
 
+For illustration there are some deliberately broken tests to show the dashboard the developer sees. 
 
