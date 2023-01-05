@@ -51,7 +51,7 @@ export class MultiPartyPage {
   setSearchFilter(searchTerm: string){
     cy.get('[data-test="search-form-field"]').click();
     cy.get('[data-test="filter-input"]').clear();
-    cy.get('[data-test="filter-input"]').type("fred");
+    cy.get('[data-test="filter-input"]').type(searchTerm);
   }
 
   clearSearchFilter(){

@@ -33,12 +33,12 @@ describe("Testing the Multi Party page -- Direct selection method", () => {
     );
   });
   /**
-   * There is a convention in the cypress world for data-test to be data-cy,
+   * There is a convention in the cypress world for data-test to be data-test,
    * since we may be using other tools that expect data-test as a convention here
    * we will use that instead its trivial
    */
 
-  it("The case id should match the URL id using data-cy", () => {
+  it("The case id should match the URL id using data-test", () => {
     cy.get('[data-test="case-id"]').should(
       "contain.text",
       "Parties to Case ID 1669-9967-6119-4595"
@@ -54,35 +54,35 @@ describe("Testing the Multi Party page -- Direct selection method", () => {
     cy.get("#mat-mdc-form-field-label-0 > .ng-tns-c120-0").click();
     cy.get("#mat-input-0").clear("f");
     cy.get("#mat-input-0").type("fred");
-    cy.get("mat-selection-list >").should("have.length", 3);
+    cy.get('[data-test="party-list"]>').should("have.length", 3);
   });
 
   it("It should carry out a case sensitive filter", () => {
     cy.get("#mat-mdc-form-field-label-0 > .ng-tns-c120-0").click();
     cy.get("#mat-input-0").clear("f");
     cy.get("#mat-input-0").type("fred");
-    cy.get("mat-selection-list >").should("have.length", 3);
+    cy.get('[data-test="party-list"]>').should("have.length", 3);
     cy.get(".mdc-switch__icon--off").click();
-    cy.get("mat-selection-list >").should("have.length", 1);
+    cy.get('[data-test="party-list"]>').should("have.length", 1);
   });
 
   it("should clear the filter", () => {
     cy.get("#mat-mdc-form-field-label-0 > .ng-tns-c120-0").click();
     cy.get("#mat-input-0").clear("f");
     cy.get("#mat-input-0").type("fred");
-    cy.get("mat-selection-list >").should("have.length", 3);
+    cy.get('[data-test="party-list"]>').should("have.length", 3);
     cy.get(".mdc-switch__icon--off").click();
-    cy.get("mat-selection-list >").should("have.length", 1);
+    cy.get('[data-test="party-list"]>').should("have.length", 1);
     /* ==== Generated with Cypress Studio ==== */
     cy.get(".mat-mdc-button-touch-target").click();
     /* ==== End Cypress Studio ==== */
-    cy.get("mat-selection-list >").should("have.length", 6);
+    cy.get('[data-test="party-list"]>').should("have.length", 6);
     /* ==== Generated with Cypress Studio ==== */
   });
 
   it("should edit a user", () => {
     cy.wait("@parties");
-    cy.get("mat-selection-list >").should("have.length", 6);
+    cy.get('[data-test="party-list"]>').should("have.length", 6);
     cy.get("mat-selection-list  > :nth-child(6) ").click();
     cy.get('[data-test="edit-button"]').click();
     cy.get("#first-name").clear();
@@ -92,7 +92,7 @@ describe("Testing the Multi Party page -- Direct selection method", () => {
     cy.get(".edit-form > :nth-child(2)").click();
     cy.wait("@partiesPatch");
     /* ==== End Cypress Studio ==== */
-    cy.get("mat-selection-list >").should("have.length", 6);
+    cy.get('[data-test="party-list"]>').should("have.length", 6);
     cy.get("mat-selection-list  > :nth-child(6) ").should(
       "contain.text",
       "Sigfredson"
@@ -100,7 +100,7 @@ describe("Testing the Multi Party page -- Direct selection method", () => {
   });
   it("should add a user", () => {
     cy.wait("@parties");
-    cy.get("mat-selection-list >").should("have.length", 6);
+    cy.get('[data-test="party-list"]>').should("have.length", 6);
     cy.get('[data-test="add-button"]').click();
     cy.get("#first-name").clear();
     cy.get("#first-name").type("Edmund");
@@ -108,12 +108,12 @@ describe("Testing the Multi Party page -- Direct selection method", () => {
     cy.get("#last-name").type("Amunsen");
     cy.get(".edit-form > button").click();
     cy.wait("@partiesAddOne");
-    cy.get("mat-selection-list >").should("have.length", 7);
+    cy.get('[data-test="party-list"]>').should("have.length", 7);
   });
 
   it("should delete a user", () => {
     cy.wait("@parties");
-    cy.get("mat-selection-list >").should("have.length", 6);
+    cy.get('[data-test="party-list"]>').should("have.length", 6);
     cy.get("mat-selection-list  > :nth-child(6) ").click();
     cy.get('[data-test="delete-button"]').click();
     cy.wait("@partiesDelete");

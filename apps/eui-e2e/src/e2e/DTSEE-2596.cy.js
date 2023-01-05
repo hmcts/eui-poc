@@ -62,12 +62,11 @@ describe("Testing the Multi Party page -- using a Page Object or App Actions Obj
     cy.wait("@parties");
     po.checkListLength(6);
     po.clickAddButton()
-    cy.get("#first-name").clear();
     po.fillFirstNameField("Edmund");
     po.fillLastNameField("Amunsen");
     po.clickAddPartySubmitButton();
     cy.wait("@partiesAddOne");
-    cy.get("mat-selection-list >").should("have.length", 7);
+    po.checkListLength(7);
   });
 
   it("should delete a user", () => {
