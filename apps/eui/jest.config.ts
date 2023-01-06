@@ -9,7 +9,15 @@ export default {
       stringifyContentPathRegex: "\\.(html|svg)$",
     },
   },
-  coverageDirectory: "../../coverage/apps/eui",
+  reporters: [
+    "default",
+    ["jest-html-reporters", {
+      "publicPath": ".apps/eui/coverage/run/html-report",
+      "filename": "report.html",
+      "openReport": true,
+      JEST_HTML_REPORTERS_ENABLE_MERGE_DATA: true,
+    }]
+  ],
   transform: {
     "^.+\\.(ts|mjs|js|html)$": "jest-preset-angular",
   },

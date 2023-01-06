@@ -9,11 +9,19 @@ export default {
       stringifyContentPathRegex: "\\.(html|svg)$",
     },
   },
-  coverageDirectory: "../../coverage/libs/nfdiv-features",
   transform: {
     "^.+\\.(ts|mjs|js|html)$": "jest-preset-angular",
   },
   transformIgnorePatterns: ["node_modules/(?!.*\\.mjs$)"],
+  reporters: [
+    "default",
+    ["jest-html-reporters", {
+      "publicPath": "./libs/nfdiv-features/coverage/run/html-report",
+      "filename": "report.html",
+      "openReport": true,
+      JEST_HTML_REPORTERS_ENABLE_MERGE_DATA: true,
+    }]
+  ],
   snapshotSerializers: [
     "jest-preset-angular/build/serializers/no-ng-attributes",
     "jest-preset-angular/build/serializers/ng-snapshot",
