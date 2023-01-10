@@ -164,3 +164,4 @@ dist
 /playwright-report/
 /playwright/.cache/
 /apps/eui-pw-e2e/playwright-report/
+
