@@ -18,6 +18,9 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
+      "@eui/playwright-plugin": [
+        "libs/playwright-plugin/src/index.ts"
+      ],
       "@hmcts-common": [
         "libs/hmcts-ui-common/src/index.ts"
       ],

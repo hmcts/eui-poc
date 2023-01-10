@@ -160,3 +160,7 @@ dist
 /apps/eui-e2e/data/data-minio-cypress/.minio.sys/config/config.json/xl.meta
 /apps/eui-e2e/data/data-minio-cypress/.minio.sys/config/iam/format.json/xl.meta
 /apps/eui-e2e/data/data-minio-cypress/.minio.sys/pool.bin/xl.meta
+/test-results/
+/playwright-report/
+/playwright/.cache/
+/apps/eui-pw-e2e/playwright-report/

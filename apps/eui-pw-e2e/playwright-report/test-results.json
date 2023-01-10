@@ -1,0 +1,209 @@
+{
+  "config": {
+    "forbidOnly": false,
+    "fullyParallel": true,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {},
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "/Users/steve-hmcft/Documents/GitHub/eui-poc/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "id": "chromium",
+        "name": "chromium",
+        "testDir": "/Users/steve-hmcft/Documents/GitHub/eui-poc/apps/eui-pw-e2e/src/pw-e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "**/?(*.)@(spec|test).*"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "/Users/steve-hmcft/Documents/GitHub/eui-poc/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "id": "firefox",
+        "name": "firefox",
+        "testDir": "/Users/steve-hmcft/Documents/GitHub/eui-poc/apps/eui-pw-e2e/src/pw-e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "**/?(*.)@(spec|test).*"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "/Users/steve-hmcft/Documents/GitHub/eui-poc/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "id": "webkit",
+        "name": "webkit",
+        "testDir": "/Users/steve-hmcft/Documents/GitHub/eui-poc/apps/eui-pw-e2e/src/pw-e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "**/?(*.)@(spec|test).*"
+        ],
+        "timeout": 30000
+      }
+    ],
+    "reporter": [
+      [
+        "html",
+        {
+          "outputFolder": "playwright-report"
+        }
+      ],
+      [
+        "json",
+        {
+          "outputFile": "playwright-report/test-results.json"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 15000
+    },
+    "configFile": "/Users/steve-hmcft/Documents/GitHub/eui-poc/apps/eui-pw-e2e/playwright.config.ts",
+    "rootDir": "/Users/steve-hmcft/Documents/GitHub/eui-poc/apps/eui-pw-e2e/src/pw-e2e",
+    "quiet": false,
+    "shard": null,
+    "updateSnapshots": "missing",
+    "version": "1.29.2",
+    "workers": 5,
+    "webServer": {
+      "command": "npx nx serve eui --port=9999",
+      "port": 9999
+    }
+  },
+  "suites": [
+    {
+      "title": "example.spec.ts",
+      "file": "example.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "homepage has Playwright in title and get started link linking to the intro page",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "status": "passed",
+                  "duration": 604,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2023-01-10T17:23:23.814Z",
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "a30a6eba6312f6b87ea5-a058e2481aeb8ef6de97",
+          "file": "example.spec.ts",
+          "line": 3,
+          "column": 5
+        },
+        {
+          "title": "homepage has Playwright in title and get started link linking to the intro page",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox",
+              "projectName": "firefox",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "status": "failed",
+                  "duration": 624,
+                  "error": {
+                    "message": "page.goto: SEC_ERROR_UNKNOWN_ISSUER\n=========================== logs ===========================\nnavigating to \"https://playwright.dev/\", waiting until \"load\"\n============================================================",
+                    "stack": "page.goto: SEC_ERROR_UNKNOWN_ISSUER\n=========================== logs ===========================\nnavigating to \"https://playwright.dev/\", waiting until \"load\"\n============================================================\n    at /Users/steve-hmcft/Documents/GitHub/eui-poc/apps/eui-pw-e2e/src/pw-e2e/example.spec.ts:4:14"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/Users/steve-hmcft/Documents/GitHub/eui-poc/apps/eui-pw-e2e/src/pw-e2e/example.spec.ts",
+                        "column": 14,
+                        "line": 4
+                      },
+                      "message": "page.goto: SEC_ERROR_UNKNOWN_ISSUER\n=========================== logs ===========================\nnavigating to \"https://playwright.dev/\", waiting until \"load\"\n============================================================\n\n\u001b[90m   at \u001b[39mexample.spec.ts:4\n\n\u001b[0m \u001b[90m 2 |\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 3 |\u001b[39m test(\u001b[32m'homepage has Playwright in title and get started link linking to the intro page'\u001b[39m\u001b[33m,\u001b[39m \u001b[36masync\u001b[39m ({ page }) \u001b[33m=>\u001b[39m {\u001b[0m\n\u001b[0m\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 4 |\u001b[39m   \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mgoto(\u001b[32m'https://playwright.dev/'\u001b[39m)\u001b[33m;\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m   |\u001b[39m              \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 5 |\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 6 |\u001b[39m   \u001b[90m// Expect a title \"to contain\" a substring.\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 7 |\u001b[39m   \u001b[36mawait\u001b[39m expect(page)\u001b[33m.\u001b[39mtoHaveTitle(\u001b[35m/Playwright/\u001b[39m)\u001b[33m;\u001b[39m\u001b[0m\n\n\u001b[2m    at /Users/steve-hmcft/Documents/GitHub/eui-poc/apps/eui-pw-e2e/src/pw-e2e/example.spec.ts:4:14\u001b[22m"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2023-01-10T17:23:23.814Z",
+                  "attachments": [],
+                  "errorLocation": {
+                    "file": "/Users/steve-hmcft/Documents/GitHub/eui-poc/apps/eui-pw-e2e/src/pw-e2e/example.spec.ts",
+                    "column": 14,
+                    "line": 4
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "a30a6eba6312f6b87ea5-06d60212500e7d5a73d9",
+          "file": "example.spec.ts",
+          "line": 3,
+          "column": 5
+        },
+        {
+          "title": "homepage has Playwright in title and get started link linking to the intro page",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit",
+              "projectName": "webkit",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "status": "passed",
+                  "duration": 1151,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2023-01-10T17:23:23.815Z",
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "a30a6eba6312f6b87ea5-18eebedb50643c60c4da",
+          "file": "example.spec.ts",
+          "line": 3,
+          "column": 5
+        }
+      ]
+    }
+  ],
+  "errors": []
+}

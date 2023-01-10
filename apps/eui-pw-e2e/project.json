@@ -1,0 +1,41 @@
+{
+  "name": "eui-pw-e2e",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "application",
+  "sourceRoot": "apps/eui-pw-e2e/src",
+  "targets": {
+    "pw-e2e": {
+      "executor": "@eui/playwright-plugin:playwright",
+      "options": {
+        "playwrightConfig": "playwright.config.ts"
+      },
+      "outputs": [
+        "apps/eui-pw-e2e/playwright-report"
+      ]
+    },
+    "debug": {
+      "executor": "@eui/playwright-plugin:playwright",
+      "options": {
+        "playwrightConfig": "playwright.config.ts",
+        "debug": true,
+        "project": "chromium",
+        "timeout": 0
+      }
+    },
+    "show-report": {
+      "executor": "@eui/playwright-plugin:show-report"
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": [
+        "{options.outputFile}"
+      ],
+      "options": {
+        "lintFilePatterns": [
+          "apps/eui-pw-e2e/**/*.{js,ts}"
+        ]
+      }
+    }
+  },
+  "tags": []
+}
