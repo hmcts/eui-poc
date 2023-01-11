@@ -36,10 +36,15 @@ const config: PlaywrightTestConfig = {
   ],
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
+    headless: false,
+    viewport: { width: 1920, height: 1024 },
+    ignoreHTTPSErrors: true,
+    video: 'on-first-retry',
     /* Maximum time each action such as `click()` can take. Defaults to 0 (no limit). */
     actionTimeout: 0,
     /* Base URL to use in actions like `await page.goto('/')`. */
-    // baseURL: 'http://localhost:3000',
+    baseURL: 'http://localhost:4200',
+    testIdAttribute: 'data-test',
 
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
     trace: 'on-first-retry',
@@ -105,6 +110,7 @@ const config: PlaywrightTestConfig = {
   webServer: {
     command: 'npx nx serve eui --port=9999',
     port: 9999,
+    reuseExistingServer: true
   },
   
 };

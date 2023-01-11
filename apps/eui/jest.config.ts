@@ -12,7 +12,7 @@ export default {
   reporters: [
     "default",
     ["jest-html-reporters", {
-      "publicPath": ".apps/eui/coverage/run/html-report",
+      "publicPath": "apps/eui/coverage/run/html-report",
       "filename": "report.html",
       "openReport": true,
       JEST_HTML_REPORTERS_ENABLE_MERGE_DATA: true,
