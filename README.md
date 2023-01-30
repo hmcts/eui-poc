@@ -20,3 +20,4 @@ Outputs a report of the run and a coverage report.
 
 For illustration purposes there are some deliberately broken tests to show the dashboard the developer sees. 
 
+This is currently a highly experimental project being used to explore emerging industry best practise and its potential impact on estate code.
