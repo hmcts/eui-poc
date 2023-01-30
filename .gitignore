@@ -165,3 +165,5 @@ dist
 /playwright/.cache/
 /apps/eui-pw-e2e/playwright-report/
 
+/apps/nfdiv-case-api/bin/
+/.dccache

@@ -1,9 +1,14 @@
 {
   "extends": "./tsconfig.json",
   "compilerOptions": {
+    "target": "es2020",
+    "lib": ["es2020", "dom", "dom.iterable"],
+    "esModuleInterop": true,
+    "module": "commonjs",
+    "strictNullChecks": true,
     "outDir": "../../dist/out-tsc",
     "module": "commonjs",
-    "types": ["jest", "node"]
+    "types": ["codeceptjs","jest", "node"]
   },
   "include": [
     "jest.config.ts",
