@@ -15,7 +15,7 @@ export default {
   reporters: [
     "default",
     ["jest-html-reporters", {
-      "publicPath": ".apps/adjunct-services/coverage/run/html-report",
+      "publicPath": "apps/adjunct-services/coverage/run/html-report",
       "filename": "report.html",
       "openReport": true,
       JEST_HTML_REPORTERS_ENABLE_MERGE_DATA: true,

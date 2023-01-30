@@ -1,0 +1,14 @@
+{
+  "generators": {
+    "init": {
+      "factory": "./src/generators/init/generator",
+      "schema": "./src/generators/init/schema.json",
+      "description": "To be run on plugin instalation"
+    },
+    "playwright-project": {
+      "factory": "./src/generators/playwright-project/generator",
+      "schema": "./src/generators/playwright-project/schema.json",
+      "description": "Generate a Playwright Project"
+    }
+  }
+}
