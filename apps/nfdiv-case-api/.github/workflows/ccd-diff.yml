@@ -24,7 +24,7 @@ jobs:
       - name: Build
         run: ./gradlew generateCCDConfig
         working-directory: build/branch
-      - uses: actions/upload-artifact@v3
+      - uses: actions/upload-artifact@v4
         with:
           name: branch
           path: build/branch/build/definitions/NFD
@@ -40,7 +40,7 @@ jobs:
       - name: Build
         run: ./gradlew generateCCDConfig
         working-directory: build/master
-      - uses: actions/upload-artifact@v3
+      - uses: actions/upload-artifact@v4
         with:
           name: master
           path: build/master/build/definitions/NFD
@@ -56,11 +56,11 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: 16
-      - uses: actions/download-artifact@v3
+      - uses: actions/download-artifact@v4
         with:
           name: branch
           path: build/branch
-      - uses: actions/download-artifact@v3
+      - uses: actions/download-artifact@v4
         with:
           name: master
           path: build/master
